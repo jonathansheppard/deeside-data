@@ -66,7 +66,7 @@ button:hover { background: var(--dark-green); }
     <input type="text" id="pc" name="pc" placeholder="e.g. CH5 4DA" maxlength="9" autocomplete="postal-code" required>
     <button type="submit">Show my area</button>
   </form>
-  <p class="hint">Your councillors and MP, planning applications, schools, food hygiene ratings, crime, sewage overflows, broadband, fuel prices and deprivation figures for where you live. Deeside.com doesn't keep your postcode.</p>
+  <p class="hint">Your councillors, MP and MSs, planning applications, schools, food hygiene ratings, crime, sewage overflows, broadband, fuel prices and deprivation figures for where you live. Deeside.com doesn't keep your postcode.</p>
   <div id="out"></div>
 </div>
 <script>
@@ -138,6 +138,24 @@ button:hover { background: var(--dark-green); }
       html += '<p class="src">UK Parliament. Ministers and whips can vote more often than backbenchers, and not voting is not always a choice: MPs can be paired, ill or on other duties.</p>';
       fill('s-mp', html);
     }).catch(function () { fail('s-mp'); });
+  }
+
+  function senedd(p) {
+    getJSON('https://jonathansheppard.github.io/deeside-data/senedd.json').then(function (d) {
+      var seat = d.westminster_to_senedd[p.codes && p.codes.parliamentary_constituency], ms = seat && d.seats[seat];
+      if (!ms) { fill('s-ms', '<p class="load">We couldn\u2019t find your Senedd constituency.</p>'); return; }
+      var first = new Date(d.first).toLocaleDateString('en-GB', { day: 'numeric', month: 'long' });
+      var html = '<p class="sub" style="margin-top:0">' + esc(seat) + ' constituency elects six Members of the Senedd. How often each has spoken in the Senedd chamber since ' + first + ' (' + d.sittings + ' sittings):</p>';
+      html += ms.map(function (m) {
+        var a = m.activity, line = a ? 'Spoke ' + a.contributions + ' times in ' + a.sittings + ' of ' + d.sittings + ' sittings' + (a.rank ? ' \u00b7 ' + a.rank + ' of ' + d.ranked_of + ' Members' : '') : 'No contributions found';
+        var last = a && a.latest && a.latest[0] ? '<span>Latest: <a href="' + esc(a.latest[0].url) + '" target="_blank" rel="noopener">' + esc(cut(a.latest[0].item, 70)) + '</a>, ' + fmtDate(a.latest[0].date) + '</span>' : '';
+        return '<div class="row"><b><i style="display:inline-block;width:9px;height:9px;margin-right:7px;background:' + esc(m.colour) + '"></i>' + esc(m.name) + ' <span class="pill">' + esc(m.party) + '</span></b>' +
+          '<span>' + esc(m.role) + '</span><span>' + line + '</span>' + last +
+          (m.email ? '<span><a href="mailto:' + esc(m.email) + '">Email</a>' + (m.phone ? ' \u00b7 <a href="tel:' + esc(m.phone.replace(/\s/g, '')) + '">' + esc(m.phone) + '</a>' : '') + '</span>' : (m.phone ? '<span><a href="tel:' + esc(m.phone.replace(/\s/g, '')) + '">' + esc(m.phone) + '</a></span>' : '')) + '</div>';
+      }).join('');
+      html += '<p class="src">Senedd Record of Proceedings, Plenary only. Ministers and party leaders speak more because they answer questions; committee work and constituency casework aren\u2019t counted. No contact listed? Call the Senedd on 0300 200 6565.</p><a class="more" href="https://www.deeside.com/senedd/" target="_parent">Senedd news and your MSs</a>';
+      fill('s-ms', html);
+    }).catch(function () { fail('s-ms'); });
   }
 
   function planning(lat, lng) {
@@ -270,6 +288,7 @@ button:hover { background: var(--dark-green); }
       out.innerHTML = '<div class="res"><div class="where"><h2>' + esc(p.postcode) + ': ' + esc(p.admin_ward) + ' ward</h2><p>' + (p.parish ? esc(p.parish) + ' community, ' : '') + 'Flintshire</p></div>' +
         section('s-cllr', 'Your councillors', esc(p.admin_ward) + ' ward') +
         section('s-mp', 'Your MP', esc(p.parliamentary_constituency || '') + ' constituency, UK Parliament') +
+        section('s-ms', 'Your Members of the Senedd', '') +
         section('s-plan', 'Planning near you', 'Applications within a mile in the last 90 days, newest first') +
         section('s-school', 'Schools near you', 'The nearest state schools') +
         section('s-food', 'Food hygiene near you', 'Places to eat and buy food within a mile') +
@@ -280,7 +299,7 @@ button:hover { background: var(--dark-green); }
         '<div class="sec"><h3>Bin collection day</h3><p class="sub">The council’s own lookup needs your full address</p><a class="more" href="https://digital.flintshire.gov.uk/FCC_BinDay" target="_blank" rel="noopener">Find your bin day on the Flintshire County Council website</a></div>' +
         section('s-wimd', 'How your neighbourhood compares', 'Deprivation across Wales') + '</div>';
       resize();
-      councillors(p); mp(p); planning(lat, lng); schools(lat, lng); hygiene(lat, lng); crime(lat, lng); overflows(lat, lng); broadband(p); fuel(lat, lng); deprivation(p);
+      councillors(p); mp(p); senedd(p); planning(lat, lng); schools(lat, lng); hygiene(lat, lng); crime(lat, lng); overflows(lat, lng); broadband(p); fuel(lat, lng); deprivation(p);
     }).catch(function () { out.innerHTML = '<p class="msg">The postcode service isn’t responding. Please try again in a minute.</p>'; resize(); });
   }
 
