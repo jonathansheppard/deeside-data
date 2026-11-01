@@ -34,7 +34,7 @@ button:hover { background: var(--dark-green); }
 .row { padding: 8px 0; border-bottom: 1px solid var(--line); }
 .row:last-of-type { border-bottom: 0; }
 .row b { display: block; font-size: 14.5px; color: var(--head); line-height: 1.35; }
-.row span { display: block; font-size: 13px; color: var(--muted); }
+.row > span { display: block; font-size: 13px; color: var(--muted); }
 .cllrs { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
 .cllr { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; }
 .cllr img { width: 54px; height: 66px; object-fit: cover; background: var(--line); flex: none; }
@@ -182,8 +182,8 @@ button:hover { background: var(--dark-green); }
     getJSON(DATA.wimd).then(function (d) {
       var code = p.codes && p.codes.lsoa, e = d.lsoa[code];
       if (!e) { fill('s-wimd', '<p class="load">No deprivation figures for this area.</p>'); return; }
-      var total = d.total, rank = e[1], decile = Math.ceil(rank / total * 10);
-      var words = decile <= 1 ? 'among the 10% most deprived areas in Wales' : decile <= 2 ? 'among the 20% most deprived areas in Wales' : decile >= 10 ? 'among the 10% least deprived areas in Wales' : decile >= 9 ? 'among the 20% least deprived areas in Wales' : 'in the middle range for Wales';
+      var total = d.total, rank = e[1], share = rank / total;
+      var words = share <= 0.1 ? 'among the 10% most deprived neighbourhoods in Wales' : share > 0.9 ? 'among the 10% least deprived neighbourhoods in Wales' : share < 0.5 ? 'more deprived than ' + Math.round((1 - share) * 100) + '% of neighbourhoods in Wales' : 'less deprived than ' + Math.round(share * 100) + '% of neighbourhoods in Wales';
       var html = '<div class="stat"><div><div class="big">' + rank.toLocaleString('en-GB') + ' of ' + total.toLocaleString('en-GB') + '</div><span>' + esc(e[0]) + ' is ' + words + ' (1 = most deprived)</span></div></div>' +
         '<p class="sub">How your neighbourhood ranks on each measure. A longer bar means less deprived.</p><div class="bars">' +
         d.domains.slice(1).map(function (name, i) { var r = e[i + 2]; return r ? '<div><span>' + esc(name) + '</span><i><em style="width:' + (r / total * 100) + '%"></em></i><b>' + r.toLocaleString('en-GB') + '</b></div>' : ''; }).join('') + '</div>' +
