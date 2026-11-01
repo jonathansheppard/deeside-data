@@ -1,0 +1,10 @@
+{
+ "_note": "Hand-kept yearly figures for the Deeside in Data numbers strip. Update when new figures are published, then run build_numbers.py.",
+ "council_tax": {
+  "band_d": 2376.17,
+  "context": "Average Band D bill for 2026/27, up 5.77% on last year",
+  "date": "March 2026",
+  "source": "Welsh Government",
+  "link": "https://www.deeside.com/how-does-flintshires-2376-council-tax-bill-stack-up-against-the-rest-of-wales/"
+ }
+}

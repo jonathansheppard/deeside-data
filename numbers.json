@@ -1,0 +1,59 @@
+{
+ "updated": "2026-11-01T12:16:55+00:00",
+ "numbers": [
+  {
+   "key": "council_tax",
+   "label": "Band D council tax",
+   "value": "£2,376.17",
+   "context": "Average Band D bill for 2026/27, up 5.77% on last year",
+   "date": "March 2026",
+   "source": "Welsh Government",
+   "link": "https://www.deeside.com/how-does-flintshires-2376-council-tax-bill-stack-up-against-the-rest-of-wales/"
+  },
+  {
+   "key": "planning",
+   "label": "Planning applications approved",
+   "value": "90%",
+   "context": "190 approved and 21 refused in the last 90 days, from 363 applications",
+   "date": "1 November 2026",
+   "source": "Flintshire County Council planning register",
+   "link": "https://planning.deeside.com/"
+  },
+  {
+   "key": "hygiene",
+   "label": "Food outlets rated 5",
+   "value": "88%",
+   "context": "1,076 of 1,227 rated places in Flintshire; 21 are rated 2 or below",
+   "date": "1 November 2026",
+   "source": "Food Standards Agency",
+   "link": "https://hygiene.deeside.com/"
+  },
+  {
+   "key": "fuel",
+   "label": "Cheapest unleaded in Flintshire",
+   "value": "163.6p",
+   "context": "At Rhydymwyn Service Station. UK average 172.1p",
+   "date": "1 November 2026",
+   "source": "GOV.UK Fuel Finder scheme",
+   "link": "https://www.deeside.com/fuel-price-map/"
+  },
+  {
+   "key": "crime",
+   "label": "Crimes reported, August",
+   "value": "1,144",
+   "context": "Crimes and anti-social behaviour reported in Flintshire in August 2026, 42 fewer than a year earlier",
+   "date": "20 October 2026",
+   "source": "data.police.uk",
+   "link": "https://www.deeside.com/police-and-crime/"
+  },
+  {
+   "key": "trains",
+   "label": "Borderlands trains on time",
+   "value": "52%",
+   "context": "Wrexham to Bidston trains within 3 minutes of time over the last 7 days; 40 of 264 cancelled",
+   "date": "31 October 2026",
+   "source": "National Rail performance data",
+   "link": "https://www.deeside.com/wrexham-bidston-line/"
+  }
+ ]
+}
