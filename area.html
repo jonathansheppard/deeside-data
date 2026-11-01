@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your area | Deeside in Data</title>
+<meta name="robots" content="noindex">
+<!-- Deeside in Data "Your area" postcode lookup (1 Nov 2026). Embedded on deeside.com/deeside-in-data/.
+     Everything runs in the reader's browser. The postcode goes to postcodes.io and the location to data.police.uk;
+     nothing is stored by Deeside.com. -->
+<style>
+:root { --green: #88c425; --dark-green: #4d7a0c; --ink: #212529; --head: #2d2d2d; --muted: #6c757d; --line: #e9ecef; --tint: #f6f8f3; --tint-line: #e3e9d8; --red: #c0392b; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #fff; }
+body { font-family: 'Open Sans', Arial, sans-serif; color: var(--ink); font-size: 15px; line-height: 1.5; }
+a { color: var(--dark-green); }
+.wrap { padding: 2px 0 6px; }
+form { display: flex; gap: 8px; flex-wrap: wrap; margin: 0 0 6px; }
+label.lbl { display: block; font-weight: 700; font-size: 15px; margin: 0 0 6px; color: var(--head); }
+input[type=text] { flex: 1 1 180px; min-width: 0; font: inherit; font-size: 17px; padding: 10px 12px; border: 2px solid #cfd6c4; border-radius: 4px; text-transform: uppercase; }
+input[type=text]:focus { outline: none; border-color: var(--green); }
+button { font: inherit; font-size: 16px; font-weight: 700; padding: 10px 22px; border: 0; border-radius: 4px; background: #000001; color: #fff; cursor: pointer; }
+button:hover { background: var(--dark-green); }
+.hint { font-size: 13px; color: var(--muted); margin: 0; }
+.msg { margin: 14px 0 0; padding: 10px 12px; background: #fff6e5; border-left: 4px solid #e8a838; font-size: 14.5px; }
+.res { margin-top: 16px; }
+.where { background: var(--tint); border: 1px solid var(--tint-line); padding: 12px 14px; margin-bottom: 18px; }
+.where h2 { font-size: 20px; font-weight: 800; color: var(--head); margin: 0 0 2px; letter-spacing: -.2px; }
+.where p { margin: 0; font-size: 14px; color: #444; }
+.sec { padding-top: 12px; border-top: 4px solid var(--green); margin: 0 0 20px; }
+.sec h3 { font-size: 17px; font-weight: 800; color: var(--head); margin: 0 0 2px; letter-spacing: -.2px; }
+.sec .sub { font-size: 13px; color: var(--muted); margin: 0 0 8px; }
+.sec .more { display: inline-block; font-size: 14px; font-weight: 700; margin-top: 6px; }
+.row { padding: 8px 0; border-bottom: 1px solid var(--line); }
+.row:last-of-type { border-bottom: 0; }
+.row b { display: block; font-size: 14.5px; color: var(--head); line-height: 1.35; }
+.row span { display: block; font-size: 13px; color: var(--muted); }
+.cllrs { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+.cllr { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; }
+.cllr img { width: 54px; height: 66px; object-fit: cover; background: var(--line); flex: none; }
+.cllr b { display: block; font-size: 15px; color: var(--head); }
+.cllr span { display: block; font-size: 13px; color: #444; line-height: 1.4; }
+.cllr a { font-size: 13px; font-weight: 600; margin-right: 8px; }
+.big { font-size: 28px; font-weight: 800; color: var(--head); line-height: 1.1; }
+.stat { display: flex; gap: 18px; flex-wrap: wrap; margin: 2px 0 8px; }
+.stat div span { display: block; font-size: 12.5px; color: var(--muted); }
+.bars div { display: grid; grid-template-columns: 150px 1fr 44px; gap: 8px; align-items: center; font-size: 13.5px; margin: 4px 0; }
+.bars i { display: block; height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; }
+.bars i em { display: block; height: 100%; background: var(--green); }
+.bars div b { text-align: right; font-weight: 700; color: var(--head); }
+.rate { display: inline-block; min-width: 22px; text-align: center; font-weight: 800; font-size: 13px; color: #fff; background: var(--dark-green); border-radius: 3px; padding: 0 5px; margin-right: 6px; }
+.rate.low { background: var(--red); }
+.rate.mid { background: #b8860b; }
+.pill { display: inline-block; font-size: 11.5px; font-weight: 700; border-radius: 3px; padding: 0 6px; margin-left: 6px; vertical-align: 1px; background: var(--line); color: var(--head); }
+.pill.ok { background: #e6f2d3; color: var(--dark-green); }
+.pill.no { background: #f8dcd8; color: var(--red); }
+.src { font-size: 12px; color: var(--muted); margin-top: 6px; }
+.load { color: var(--muted); font-size: 14px; }
+@media (max-width: 480px) { .bars div { grid-template-columns: 112px 1fr 38px; font-size: 12.5px; } .big { font-size: 24px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <form id="f" autocomplete="on">
+    <label class="lbl" for="pc" style="flex-basis:100%">Enter a Flintshire postcode</label>
+    <input type="text" id="pc" name="pc" placeholder="e.g. CH5 4DA" maxlength="9" autocomplete="postal-code" required>
+    <button type="submit">Show my area</button>
+  </form>
+  <p class="hint">Your councillors, planning applications, food hygiene ratings, crime, fuel prices and deprivation figures for where you live. Deeside.com doesn't keep your postcode.</p>
+  <div id="out"></div>
+</div>
+<script>
+(function () {
+  var DATA = {
+    councillors: 'https://jonathansheppard.github.io/deeside-data/councillors.json',
+    wimd: 'https://jonathansheppard.github.io/deeside-data/wimd.json',
+    planning: 'https://planning.deeside.com/data/planning.json',
+    hygiene: 'https://hygiene.deeside.com/data/fhrs.json',
+    fuel: 'https://fuel.deeside.com/stations.json'
+  };
+  var cache = {};
+  var out = document.getElementById('out'), input = document.getElementById('pc');
+
+  function getJSON(url) {
+    if (!cache[url]) cache[url] = fetch(url).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+    return cache[url];
+  }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function key(s) { return String(s).toLowerCase().replace(/&/g, ' and ').replace(/['’]/g, '').replace(/[^a-z ]/g, ' ').split(/\s+/).filter(function (w) { return w && w !== 'and'; }).join(''); }
+  function miles(a, b, c, d) {
+    var R = 3958.8, r = Math.PI / 180, x = (c - a) * r, y = (d - b) * r;
+    var h = Math.sin(x / 2) * Math.sin(x / 2) + Math.cos(a * r) * Math.cos(c * r) * Math.sin(y / 2) * Math.sin(y / 2);
+    return 2 * R * Math.asin(Math.sqrt(h));
+  }
+  function dist(m) { return m < 0.1 ? 'under 0.1 miles' : m.toFixed(1) + ' miles'; }
+  function fmtDate(s) { if (!s) return ''; var d = new Date(s); return isNaN(d) ? s : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }); }
+  function cut(s, n) { s = String(s || ''); return s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : s; }
+  function resize() {
+    try { parent.postMessage({ deesideWidget: 'area', height: document.documentElement.scrollHeight }, '*'); } catch (e) {}
+  }
+  function section(id, title, sub) {
+    return '<div class="sec" id="' + id + '"><h3>' + title + '</h3>' + (sub ? '<p class="sub">' + sub + '</p>' : '') + '<div class="body"><p class="load">Loading…</p></div></div>';
+  }
+  function fill(id, html) { var el = document.querySelector('#' + id + ' .body'); if (el) el.innerHTML = html; resize(); }
+  function fail(id) { fill(id, '<p class="load">This part isn’t available right now. Please try again later.</p>'); }
+
+  var CRIME = { 'anti-social-behaviour': 'Anti-social behaviour', 'violent-crime': 'Violence and sexual offences', 'criminal-damage-arson': 'Criminal damage and arson', 'shoplifting': 'Shoplifting', 'public-order': 'Public order', 'other-theft': 'Other theft', 'vehicle-crime': 'Vehicle crime', 'burglary': 'Burglary', 'drugs': 'Drugs', 'other-crime': 'Other crime', 'possession-of-weapons': 'Possession of weapons', 'bicycle-theft': 'Bicycle theft', 'robbery': 'Robbery', 'theft-from-the-person': 'Theft from the person' };
+
+  function councillors(p) {
+    getJSON(DATA.councillors).then(function (d) {
+      var w = d.wards[key(p.admin_ward)];
+      if (!w || !w.councillors.length) { fill('s-cllr', '<p class="load">We couldn’t match your ward to the council’s list. <a href="https://committeemeetings.flintshire.gov.uk/mgMemberIndex.aspx" target="_blank" rel="noopener">Find your councillor on the council website</a>.</p>'); return; }
+      fill('s-cllr', '<div class="cllrs">' + w.councillors.map(function (c) {
+        return '<div class="cllr">' + (c.photo ? '<img src="' + esc(c.photo) + '" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'">' : '') +
+          '<div><b>' + esc(c.name) + '</b><span>' + esc(c.party) + '</span>' + (c.posts ? '<span>' + esc(cut(c.posts, 90)) + '</span>' : '') +
+          (c.email ? '<a href="mailto:' + esc(c.email) + '">Email</a>' : '') + (c.url ? '<a href="' + esc(c.url) + '" target="_blank" rel="noopener">Profile</a>' : '') + '</div></div>';
+      }).join('') + '</div><p class="src">Flintshire County Council</p>');
+    }).catch(function () { fail('s-cllr'); });
+  }
+
+  function planning(lat, lng) {
+    getJSON(DATA.planning).then(function (d) {
+      var near = d.applications.filter(function (a) { return a.lat && a.lng; }).map(function (a) { a._m = miles(lat, lng, a.lat, a.lng); return a; })
+        .filter(function (a) { return a._m <= 1; }).sort(function (a, b) { return (b.registered || '').localeCompare(a.registered || ''); });
+      if (!near.length) { fill('s-plan', '<p class="load">No planning applications within a mile of you in the last 90 days.</p><a class="more" href="https://planning.deeside.com/" target="_blank" rel="noopener">Search all applications</a>'); return; }
+      var dec = near.filter(function (a) { return a.outcome === 'approved' || a.outcome === 'refused'; });
+      var ok = dec.filter(function (a) { return a.outcome === 'approved'; }).length;
+      var html = '<div class="stat"><div><div class="big">' + near.length + '</div><span>applications within a mile</span></div>' +
+        (dec.length ? '<div><div class="big">' + ok + ' of ' + dec.length + '</div><span>decided so far were approved</span></div>' : '') + '</div>';
+      html += near.slice(0, 5).map(function (a) {
+        var pill = a.outcome === 'approved' ? '<span class="pill ok">Approved</span>' : a.outcome === 'refused' ? '<span class="pill no">Refused</span>' : '<span class="pill">' + esc(a.decision || a.status || 'Pending') + '</span>';
+        return '<div class="row"><b><a href="' + esc(a.url) + '" target="_blank" rel="noopener">' + esc(cut(a.proposal, 110)) + '</a>' + pill + '</b><span>' + esc(cut(a.location, 80)) + ' · ' + dist(a._m) + ' · registered ' + fmtDate(a.registered) + '</span></div>';
+      }).join('');
+      html += '<a class="more" href="https://planning.deeside.com/" target="_blank" rel="noopener">See all ' + near.length + ' on our planning page</a>';
+      fill('s-plan', html);
+    }).catch(function () { fail('s-plan'); });
+  }
+
+  function hygiene(lat, lng) {
+    getJSON(DATA.hygiene).then(function (d) {
+      var near = d.premises.filter(function (p) { return p.lat && /^[0-5]$/.test(p.r); }).map(function (p) { p._m = miles(lat, lng, +p.lat, +p.lng); return p; })
+        .filter(function (p) { return p._m <= 1; }).sort(function (a, b) { return a._m - b._m; });
+      if (!near.length) { fill('s-food', '<p class="load">No rated food businesses within a mile of you.</p>'); return; }
+      var five = near.filter(function (p) { return p.r === '5'; }).length;
+      var low = near.filter(function (p) { return +p.r <= 2; }).sort(function (a, b) { return a.r - b.r || a._m - b._m; });
+      function line(p) { var c = +p.r <= 2 ? ' low' : +p.r === 3 ? ' mid' : ''; return '<div class="row"><b><span class="rate' + c + '">' + p.r + '</span>' + esc(p.n) + '</b><span>' + esc(p.t) + ' · ' + dist(p._m) + ' · inspected ' + fmtDate(p.d) + '</span></div>'; }
+      var html = '<div class="stat"><div><div class="big">' + near.length + '</div><span>rated places within a mile</span></div><div><div class="big">' + Math.round(five / near.length * 100) + '%</div><span>rated 5 (very good)</span></div><div><div class="big">' + low.length + '</div><span>rated 2 or below</span></div></div>';
+      if (low.length) html += '<p class="sub" style="margin-top:6px">Lowest ratings near you</p>' + low.slice(0, 3).map(line).join('');
+      html += '<p class="sub" style="margin-top:6px">Nearest to you</p>' + near.slice(0, 4).map(line).join('');
+      html += '<a class="more" href="https://hygiene.deeside.com/" target="_blank" rel="noopener">See every rating on our food hygiene page</a>';
+      fill('s-food', html);
+    }).catch(function () { fail('s-food'); });
+  }
+
+  function crime(lat, lng) {
+    fetch('https://data.police.uk/api/crimes-street/all-crime?lat=' + lat + '&lng=' + lng).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (rows) {
+      if (!rows.length) { fill('s-crime', '<p class="load">No crimes recorded near you in the latest month published.</p>'); return; }
+      var month = rows[0].month, by = {};
+      rows.forEach(function (c) { by[c.category] = (by[c.category] || 0) + 1; });
+      var cats = Object.keys(by).sort(function (a, b) { return by[b] - by[a]; }), top = by[cats[0]];
+      var mName = new Date(month + '-01').toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+      var html = '<div class="stat"><div><div class="big">' + rows.length + '</div><span>crimes and anti-social behaviour reports within about a mile, ' + mName + '</span></div></div><div class="bars">' +
+        cats.slice(0, 6).map(function (c) { return '<div><span>' + esc(CRIME[c] || c) + '</span><i><em style="width:' + (by[c] / top * 100) + '%"></em></i><b>' + by[c] + '</b></div>'; }).join('') + '</div>' +
+        '<p class="src">data.police.uk. Locations are approximate, and figures run about two months behind.</p><a class="more" href="https://www.deeside.com/police-and-crime/" target="_parent">Police and crime in Flintshire</a>';
+      fill('s-crime', html);
+    }).catch(function () { fail('s-crime'); });
+  }
+
+  function fuel(lat, lng) {
+    getJSON(DATA.fuel).then(function (d) {
+      var month = Date.now() - 30 * 864e5;
+      var st = d.stations.filter(function (s) { return s.unleaded && s.lat && new Date(s.updated).getTime() >= month; }).map(function (s) { s._m = miles(lat, lng, s.lat, s.lng); return s; })
+        .filter(function (s) { return s._m <= 5; }).sort(function (a, b) { return a.unleaded - b.unleaded || a._m - b._m; });
+      if (!st.length) { fill('s-fuel', '<p class="load">No up-to-date prices within five miles of you.</p>'); return; }
+      fill('s-fuel', st.slice(0, 3).map(function (s) {
+        return '<div class="row"><b>' + s.unleaded.toFixed(1) + 'p unleaded' + (s.diesel ? ', ' + s.diesel.toFixed(1) + 'p diesel' : '') + '</b><span>' + esc(s.name.replace(/\b\w+/g, function (w) { return w.charAt(0) + w.slice(1).toLowerCase(); })) + ' · ' + dist(s._m) + '</span></div>';
+      }).join('') + '<a class="more" href="https://www.deeside.com/fuel-price-map/" target="_parent">See the fuel price map</a>');
+    }).catch(function () { fail('s-fuel'); });
+  }
+
+  function deprivation(p) {
+    getJSON(DATA.wimd).then(function (d) {
+      var code = p.codes && p.codes.lsoa, e = d.lsoa[code];
+      if (!e) { fill('s-wimd', '<p class="load">No deprivation figures for this area.</p>'); return; }
+      var total = d.total, rank = e[1], decile = Math.ceil(rank / total * 10);
+      var words = decile <= 1 ? 'among the 10% most deprived areas in Wales' : decile <= 2 ? 'among the 20% most deprived areas in Wales' : decile >= 10 ? 'among the 10% least deprived areas in Wales' : decile >= 9 ? 'among the 20% least deprived areas in Wales' : 'in the middle range for Wales';
+      var html = '<div class="stat"><div><div class="big">' + rank.toLocaleString('en-GB') + ' of ' + total.toLocaleString('en-GB') + '</div><span>' + esc(e[0]) + ' is ' + words + ' (1 = most deprived)</span></div></div>' +
+        '<p class="sub">How your neighbourhood ranks on each measure. A longer bar means less deprived.</p><div class="bars">' +
+        d.domains.slice(1).map(function (name, i) { var r = e[i + 2]; return r ? '<div><span>' + esc(name) + '</span><i><em style="width:' + (r / total * 100) + '%"></em></i><b>' + r.toLocaleString('en-GB') + '</b></div>' : ''; }).join('') + '</div>' +
+        '<p class="src">Welsh Index of Multiple Deprivation 2025. Your neighbourhood is the small statistical area (about 1,500 people) your postcode sits in.</p>';
+      fill('s-wimd', html);
+    }).catch(function () { fail('s-wimd'); });
+  }
+
+  function show(pc) {
+    pc = pc.replace(/\s+/g, '').toUpperCase();
+    if (!/^[A-Z]{1,2}[0-9][0-9A-Z]?[0-9][A-Z]{2}$/.test(pc)) { out.innerHTML = '<p class="msg">That doesn’t look like a full postcode. Try something like CH5 4DA.</p>'; resize(); return; }
+    out.innerHTML = '<p class="load" style="margin-top:14px">Looking up ' + esc(pc) + '…</p>'; resize();
+    fetch('https://api.postcodes.io/postcodes/' + encodeURIComponent(pc)).then(function (r) { return r.json(); }).then(function (j) {
+      var p = j && j.result;
+      if (!p) { out.innerHTML = '<p class="msg">We couldn’t find that postcode. Check it and try again.</p>'; resize(); return; }
+      if (p.admin_district !== 'Flintshire') { out.innerHTML = '<p class="msg">' + esc(p.postcode) + ' is in ' + esc(p.admin_district || 'another area') + '. This lookup covers Flintshire only for now.</p>'; resize(); return; }
+      try { localStorage.setItem('ds_area_pc', p.postcode); } catch (e) {}
+      var lat = p.latitude, lng = p.longitude;
+      out.innerHTML = '<div class="res"><div class="where"><h2>' + esc(p.postcode) + ': ' + esc(p.admin_ward) + ' ward</h2><p>' + (p.parish ? esc(p.parish) + ' community, ' : '') + 'Flintshire</p></div>' +
+        section('s-cllr', 'Your councillors', esc(p.admin_ward) + ' ward') +
+        section('s-plan', 'Planning near you', 'Applications within a mile in the last 90 days, newest first') +
+        section('s-food', 'Food hygiene near you', 'Places to eat and buy food within a mile') +
+        section('s-crime', 'Crime near you', '') +
+        section('s-fuel', 'Cheapest fuel near you', 'Within five miles, cheapest unleaded first') +
+        section('s-wimd', 'How your neighbourhood compares', 'Deprivation across Wales') + '</div>';
+      resize();
+      councillors(p); planning(lat, lng); hygiene(lat, lng); crime(lat, lng); fuel(lat, lng); deprivation(p);
+    }).catch(function () { out.innerHTML = '<p class="msg">The postcode service isn’t responding. Please try again in a minute.</p>'; resize(); });
+  }
+
+  document.getElementById('f').addEventListener('submit', function (e) { e.preventDefault(); input.blur(); show(input.value); });
+  var q = new URLSearchParams(location.search).get('pc'), saved = null;
+  try { saved = localStorage.getItem('ds_area_pc'); } catch (e) {}
+  if (q) { input.value = q; show(q); } else if (saved) { input.value = saved; }
+  window.addEventListener('load', resize); window.addEventListener('resize', resize);
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(document.body);
+})();
+</script>
+</body>
+</html>

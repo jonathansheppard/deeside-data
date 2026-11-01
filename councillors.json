@@ -1,0 +1,767 @@
+{
+ "updated": "2026-11-01T12:35:16+00:00",
+ "source": "Flintshire County Council (ModernGov)",
+ "wards": {
+  "argoednewbrighton": {
+   "ward": "Argoed and New Brighton",
+   "councillors": [
+    {
+     "name": "Mared Eastwood",
+     "party": "Eagle",
+     "posts": "Cabinet Member for Education, Welsh Language, Culture and Leisure / Leader of the Eagle Group",
+     "email": "mared.eastwood@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/9/3/4/Info00002439/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=2439"
+    },
+    {
+     "name": "Faron Hadfield-Jones",
+     "party": "Liberal Democrats",
+     "posts": "",
+     "email": "",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/0/6/4/Info00003460/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3460"
+    }
+   ]
+  },
+  "bagillt": {
+   "ward": "Bagillt",
+   "councillors": [
+    {
+     "name": "Robert Davies",
+     "party": "Independent",
+     "posts": "Chair of Licensing Committee",
+     "email": "robert.davies@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/8/4/4/Info00002448/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=2448"
+    },
+    {
+     "name": "Kevin Rush",
+     "party": "Labour",
+     "posts": "Vice-Chair of Commuity & Housing Overview & Scrutny Committee",
+     "email": "kevin.rush@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/1/9/5/Info00002591/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=2591"
+    }
+   ]
+  },
+  "broughtonnortheast": {
+   "ward": "Broughton North East",
+   "councillors": [
+    {
+     "name": "Billy Mullin",
+     "party": "Labour",
+     "posts": "",
+     "email": "billy.mullin@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/2/1/1/Info00000112/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=112"
+    }
+   ]
+  },
+  "broughtonsouth": {
+   "ward": "Broughton South",
+   "councillors": [
+    {
+     "name": "Chrissy Gee",
+     "party": "Flintshire People's Voice",
+     "posts": "",
+     "email": "chrissy.gee@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/0/9/2/Info00003290/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3290"
+    },
+    {
+     "name": "Ryan McKeown",
+     "party": "Labour",
+     "posts": "",
+     "email": "ryan.mckeown@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/9/8/2/Info00003289/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3289"
+    }
+   ]
+  },
+  "brynfordhalkyn": {
+   "ward": "Brynford and Halkyn",
+   "councillors": [
+    {
+     "name": "Simon Jones",
+     "party": "Labour",
+     "posts": "",
+     "email": "simon.jones@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/2/9/2/Info00003292/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3292"
+    },
+    {
+     "name": "Fran Lister",
+     "party": "Liberal Democrats",
+     "posts": "",
+     "email": "fran.lister@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/7/7/3/Info00003377/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3377"
+    }
+   ]
+  },
+  "buckleybistreeast": {
+   "ward": "Buckley: Bistre East",
+   "councillors": [
+    {
+     "name": "Richard Jones",
+     "party": "Independent",
+     "posts": "Deputy Leader of the Council and Cabinet Member for Transformation Growth and Place",
+     "email": "richard.jones@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/9/5/1/Info00000159/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=159"
+    },
+    {
+     "name": "Arnold Woolley Dip.IM, MCMI",
+     "party": "True Independents",
+     "posts": "",
+     "email": "arnold.woolley@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/0/8/1/Info00000180/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=180"
+    }
+   ]
+  },
+  "buckleybistrewest": {
+   "ward": "Buckley: Bistre West",
+   "councillors": [
+    {
+     "name": "Carolyn Preece",
+     "party": "Flintshire People's Voice",
+     "posts": "",
+     "email": "carolyn.preece@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/2/0/3/Info00003302/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3302"
+    },
+    {
+     "name": "Dan Rose",
+     "party": "Flintshire People's Voice",
+     "posts": "",
+     "email": "dan.rose@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/0/0/3/Info00003300/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3300"
+    }
+   ]
+  },
+  "buckleymountain": {
+   "ward": "Buckley: Mountain",
+   "councillors": [
+    {
+     "name": "Carol Ellis",
+     "party": "True Independents",
+     "posts": "Leader of the True Independents Group / Chair of Community & Housing Overview & Scrutiny Committee",
+     "email": "carol.ellis@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/1/4/1/Info00000141/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=141"
+    }
+   ]
+  },
+  "buckleypentrobin": {
+   "ward": "Buckley: Pentrobin",
+   "councillors": [
+    {
+     "name": "Dennis Hutchinson",
+     "party": "True Independents",
+     "posts": "",
+     "email": "dennis.hutchinson@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/4/5/1/Info00000154/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=154"
+    },
+    {
+     "name": "Mike Peers",
+     "party": "Reform UK",
+     "posts": "",
+     "email": "mike.peers@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/9/6/1/Info00000169/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=169"
+    }
+   ]
+  },
+  "caergwrle": {
+   "ward": "Caergwrle",
+   "councillors": [
+    {
+     "name": "David Healey",
+     "party": "Labour",
+     "posts": "Vice-Chair of Environment & Economy Overview & Scrutiny Committee",
+     "email": "david.healey@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/7/3/7/Info00001737/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=1737"
+    }
+   ]
+  },
+  "caerwys": {
+   "ward": "Caerwys",
+   "councillors": [
+    {
+     "name": "Steve Copple",
+     "party": "Independent",
+     "posts": "Vice-Chair of the Council / Deputy Leader of the Independent Group / Vice-Chair of Social & Health Care Overview & Scrutiny Committee",
+     "email": "steve.copple@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/4/0/3/Info00003304/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3304"
+    }
+   ]
+  },
+  "cilcain": {
+   "ward": "Cilcain",
+   "councillors": [
+    {
+     "name": "Andrew Parkhurst",
+     "party": "Liberal Democrats",
+     "posts": "Leader of the Liberal Democrat Group / Vice-Chair of Governance & Audit Committee",
+     "email": "andrew.parkhurst@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/5/9/2/Info00003295/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3295"
+    }
+   ]
+  },
+  "connahsquaycentral": {
+   "ward": "Connah's Quay Central",
+   "councillors": [
+    {
+     "name": "Debbie Owen",
+     "party": "Independent",
+     "posts": "",
+     "email": "debbie.owen@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/6/8/2/Info00003286/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3286"
+    },
+    {
+     "name": "Dave Vernon",
+     "party": "Reform UK",
+     "posts": "",
+     "email": "",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/1/6/4/Info00003461/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3461"
+    }
+   ]
+  },
+  "connahsquaysouth": {
+   "ward": "Connah's Quay South",
+   "councillors": [
+    {
+     "name": "Bill Crease",
+     "party": "Independent",
+     "posts": "Deputy Leader of the Independent Group / Chair of Corporate Resources Overview & Scrutiny Committee",
+     "email": "bill.crease@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/3/0/3/Info00003303/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3303"
+    },
+    {
+     "name": "Antony Wren",
+     "party": "Independent",
+     "posts": "Vice Chair of Clwyd Pension Fund Committee",
+     "email": "antony.wren@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/1/0/3/Info00003301/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3301"
+    }
+   ]
+  },
+  "connahsquaygolftyn": {
+   "ward": "Connah's Quay: Golftyn",
+   "councillors": [
+    {
+     "name": "Andy Hughes",
+     "party": "Independent",
+     "posts": "",
+     "email": "andy.hughes@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/1/6/6/Info00002661/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=2661"
+    },
+    {
+     "name": "David Richardson",
+     "party": "Reform UK",
+     "posts": "",
+     "email": "David.F.Richardson@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/1/9/2/Info00003291/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3291"
+    }
+   ]
+  },
+  "connahsquaywepre": {
+   "ward": "Connah's Quay: Wepre",
+   "councillors": [
+    {
+     "name": "Roz Mansell",
+     "party": "Reform UK",
+     "posts": "",
+     "email": "roz.mansell@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/6/9/2/Info00003296/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3296"
+    }
+   ]
+  },
+  "flintcastle": {
+   "ward": "Flint: Castle",
+   "councillors": [
+    {
+     "name": "Ian Roberts",
+     "party": "Labour",
+     "posts": "",
+     "email": "ian.b.roberts@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/2/7/1/Info00000172/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=172"
+    }
+   ]
+  },
+  "flintcoleshilltrelawny": {
+   "ward": "Flint: Coleshill and Trelawny",
+   "councillors": [
+    {
+     "name": "Paul Cunningham",
+     "party": "Labour",
+     "posts": "",
+     "email": "paul.cunningham@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/5/4/6/Info00001645/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=1645"
+    },
+    {
+     "name": "Michelle Perfect",
+     "party": "Labour",
+     "posts": "",
+     "email": "michelle.perfect@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/5/4/4/Info00002445/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=2445"
+    },
+    {
+     "name": "Vicky Perfect",
+     "party": "Labour",
+     "posts": "",
+     "email": "vicky.perfect@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/4/5/6/Info00001654/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=1654"
+    }
+   ]
+  },
+  "flintoakenholt": {
+   "ward": "Flint: Oakenholt",
+   "councillors": [
+    {
+     "name": "Mel Buckley",
+     "party": "Labour and Co-operative Party",
+     "posts": "Chair of the Council",
+     "email": "mel.buckley@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/3/9/2/Info00003293/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3293"
+    }
+   ]
+  },
+  "greenfield": {
+   "ward": "Greenfield",
+   "councillors": [
+    {
+     "name": "Rosetta Dolphin",
+     "party": "Eagle",
+     "posts": "Vice-Chair of Licensing Committee",
+     "email": "rosetta.dolphin@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/9/3/1/Info00000139/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=139"
+    }
+   ]
+  },
+  "gwernaffieldgwernymynydd": {
+   "ward": "Gwernaffield and Gwernymynydd",
+   "councillors": [
+    {
+     "name": "David Coggins Cogan",
+     "party": "Liberal Democrats",
+     "posts": "Deputy Leader of the Liberal Democrat Group / Chair of Constitution & Democratic Services Committee",
+     "email": "david.coggins.cogan@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/8/8/2/Info00003288/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3288"
+    },
+    {
+     "name": "Adele Davies-Cooke",
+     "party": "Conservative",
+     "posts": "",
+     "email": "adele.davies-cooke@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/4/3/1/Info00000134/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=134"
+    }
+   ]
+  },
+  "hawardenaston": {
+   "ward": "Hawarden: Aston",
+   "councillors": [
+    {
+     "name": "Gillian Brockley",
+     "party": "Flintshire People's Voice",
+     "posts": "",
+     "email": "gillian.brockley@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/9/7/2/Info00003279/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3279"
+    },
+    {
+     "name": "Helen Brown",
+     "party": "Reform UK",
+     "posts": "Leader of the Reform Group",
+     "email": "helen.brown@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/3/1/1/Info00000113/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=113"
+    }
+   ]
+  },
+  "hawardenewloe": {
+   "ward": "Hawarden: Ewloe",
+   "councillors": [
+    {
+     "name": "Dave Mackie",
+     "party": "True Independents",
+     "posts": "",
+     "email": "david.mackie@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/3/6/1/Info00000163/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=163"
+    },
+    {
+     "name": "Linda Thomas",
+     "party": "Labour",
+     "posts": "Cabinet Member for Customer and Corporate Services",
+     "email": "linda.thomas@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/4/8/2/Info00003284/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3284"
+    }
+   ]
+  },
+  "hawardenmancot": {
+   "ward": "Hawarden: Mancot",
+   "councillors": [
+    {
+     "name": "Sam Swash",
+     "party": "Flintshire People's Voice",
+     "posts": "Leader of the Flintshire People's Voice Group / Chair of Social and Health Care Overview and Scrutiny Committee",
+     "email": "sam.swash@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/1/8/2/Info00003281/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3281"
+    },
+    {
+     "name": "Ant Turton",
+     "party": "Independent (Unattached)",
+     "posts": "",
+     "email": "ant.turton@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/0/8/2/Info00003280/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3280"
+    }
+   ]
+  },
+  "higherkinnerton": {
+   "ward": "Higher Kinnerton",
+   "councillors": [
+    {
+     "name": "Josh Swash",
+     "party": "Flintshire People's Voice",
+     "posts": "",
+     "email": "josh.swash@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/7/6/4/Info00003467/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3467"
+    }
+   ]
+  },
+  "holywellcentral": {
+   "ward": "Holywell Central",
+   "councillors": [
+    {
+     "name": "Ted Palmer",
+     "party": "Labour",
+     "posts": "Cabinet Member for Highways, Assets and Public Protection / Armed Forces Champion",
+     "email": "ted.palmer@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/1/5/4/Info00002451/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=2451"
+    }
+   ]
+  },
+  "holywelleast": {
+   "ward": "Holywell East",
+   "councillors": [
+    {
+     "name": "Ian Hodge",
+     "party": "Reform UK",
+     "posts": "Chair of Education, Youth & Culture Overview & Scrutiny Committee",
+     "email": "ian.hodge@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/8/9/2/Info00003298/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3298"
+    }
+   ]
+  },
+  "holywellwest": {
+   "ward": "Holywell West",
+   "councillors": [
+    {
+     "name": "Paul Johnson",
+     "party": "Labour and Co-operative Party",
+     "posts": "Deputy Leader of the Council and Cabinet Member for Finance, Social Value and Communities",
+     "email": "paul.johnson@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/2/5/4/Info00002452/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=2452"
+    }
+   ]
+  },
+  "hope": {
+   "ward": "Hope",
+   "councillors": [
+    {
+     "name": "Gladys Healey",
+     "party": "Labour",
+     "posts": "Vice-Chair of Planning Committee",
+     "email": "gladys.healey@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/3/3/4/Info00002433/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=2433"
+    }
+   ]
+  },
+  "leeswood": {
+   "ward": "Leeswood",
+   "councillors": [
+    {
+     "name": "Kristian Salkeld",
+     "party": "Reform UK",
+     "posts": "Deputy Leader of the Reform Group",
+     "email": "kristian.salkeld@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/1/3/4/Info00003431/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3431"
+    }
+   ]
+  },
+  "llanasatrelawnyd": {
+   "ward": "Llanasa and Trelawnyd",
+   "councillors": [
+    {
+     "name": "Glyn Banks",
+     "party": "Labour",
+     "posts": "Cabinet Member for Waste and Transportation",
+     "email": "glyn.banks@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/7/9/1/Info00001197/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=1197"
+    },
+    {
+     "name": "Gina Maddison",
+     "party": "Labour",
+     "posts": "Vice-Chair of Education, Youth and Culture Overview & Scrutiny Committee",
+     "email": "gina.maddison@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/7/8/2/Info00003287/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3287"
+    }
+   ]
+  },
+  "llanfynydd": {
+   "ward": "Llanfynydd",
+   "councillors": [
+    {
+     "name": "Dave Hughes",
+     "party": "Labour",
+     "posts": "Leader of the Council / Leader of the Labour Group",
+     "email": "dave.hughes@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/4/3/4/Info00002434/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=2434"
+    }
+   ]
+  },
+  "moldeast": {
+   "ward": "Mold East",
+   "councillors": [
+    {
+     "name": "Chris Bithell",
+     "party": "Labour",
+     "posts": "Chair of Clwyd Pension Fund Committee",
+     "email": "christopher.bithell@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/7/2/1/Info00000127/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=127"
+    }
+   ]
+  },
+  "moldsouth": {
+   "ward": "Mold South",
+   "councillors": [
+    {
+     "name": "Geoff Collett",
+     "party": "Labour",
+     "posts": "",
+     "email": "geoff.collett@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/7/3/4/Info00002437/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=2437"
+    }
+   ]
+  },
+  "moldwest": {
+   "ward": "Mold West",
+   "councillors": [
+    {
+     "name": "Tina Claydon",
+     "party": "Labour and Co-operative Party",
+     "posts": "",
+     "email": "tina.claydon@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/7/9/2/Info00003297/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3297"
+    }
+   ]
+  },
+  "moldbroncoed": {
+   "ward": "Mold: Broncoed",
+   "councillors": [
+    {
+     "name": "Vacancy",
+     "party": "Labour",
+     "posts": "Vacancy - there will be a by-election in due course.  For any queries relating to the Mold Broncoed Ward, please contact Member.Services@flintshire.gov.uk",
+     "email": "",
+     "photo": "https://committeemeetings.flintshire.gov.uk/mgimages/missingsmallmug.gif",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3299"
+    }
+   ]
+  },
+  "mostyn": {
+   "ward": "Mostyn",
+   "councillors": [
+    {
+     "name": "Pam Banks",
+     "party": "Labour",
+     "posts": "",
+     "email": "pam.banks@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/4/9/2/Info00003294/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3294"
+    }
+   ]
+  },
+  "northop": {
+   "ward": "Northop",
+   "councillors": [
+    {
+     "name": "Marion Bateman",
+     "party": "Reform UK",
+     "posts": "",
+     "email": "marion.bateman@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/6/2/1/Info00000126/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=126"
+    },
+    {
+     "name": "Linda Thew",
+     "party": "True Independents",
+     "posts": "Vice-Chair of Constitution and Democratic Services Committee",
+     "email": "linda.thew2@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/6/0/3/Info00003306/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3306"
+    }
+   ]
+  },
+  "penyffordd": {
+   "ward": "Penyffordd",
+   "councillors": [
+    {
+     "name": "Alasdair Ibbotson",
+     "party": "Flintshire People's Voice",
+     "posts": "",
+     "email": "alasdair.ibbotson@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/2/1/7/Info00002712/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=2712"
+    },
+    {
+     "name": "Roy Wakelam",
+     "party": "Independent",
+     "posts": "",
+     "email": "roy.wakelam@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/3/8/2/Info00003283/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3283"
+    }
+   ]
+  },
+  "queensferrysealand": {
+   "ward": "Queensferry and Sealand",
+   "councillors": [
+    {
+     "name": "Christine Jones",
+     "party": "Labour",
+     "posts": "Cabinet Member for Social Services and Wellbeing",
+     "email": "christine.m.jones@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/8/5/1/Info00000158/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=158"
+    },
+    {
+     "name": "Dale Selvester",
+     "party": "Reform UK",
+     "posts": "",
+     "email": "dale.selvester@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/5/8/2/Info00003285/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3285"
+    }
+   ]
+  },
+  "saltneyferry": {
+   "ward": "Saltney Ferry",
+   "councillors": [
+    {
+     "name": "Richard Lloyd",
+     "party": "Labour",
+     "posts": "Chair of Planning Committee",
+     "email": "richard.lloyd@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/3/0/2/Info00001203/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=1203"
+    },
+    {
+     "name": "Jason Shallcross",
+     "party": "Independent",
+     "posts": "Leader of the Independent Group / Cabinet Member for Housing and Communities",
+     "email": "jason.shallcross@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/2/8/2/Info00003282/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3282"
+    }
+   ]
+  },
+  "shottoneastshottonhigher": {
+   "ward": "Shotton East and Shotton Higher",
+   "councillors": [
+    {
+     "name": "Ron Davies",
+     "party": "Labour",
+     "posts": "",
+     "email": "ron.davies@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/3/3/1/Info00000133/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=133"
+    },
+    {
+     "name": "David Evans",
+     "party": "Labour and Co-operative Party",
+     "posts": "Chair of Environment & Economy Overview & Scrutiny Committee",
+     "email": "david.evans@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/4/0/2/Info00001204/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=1204"
+    }
+   ]
+  },
+  "shottonwest": {
+   "ward": "Shotton West",
+   "councillors": [
+    {
+     "name": "Sean Bibby",
+     "party": "Labour",
+     "posts": "",
+     "email": "sean.bibby@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/0/4/4/Info00002440/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=2440"
+    }
+   ]
+  },
+  "treuddyn": {
+   "ward": "Treuddyn",
+   "councillors": [
+    {
+     "name": "Allan Marshall",
+     "party": "Independent",
+     "posts": "Vice-Chair of Corporate Resources Overview & Scrutiny Committee",
+     "email": "allan.marshall@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/5/0/3/Info00003305/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=3305"
+    }
+   ]
+  },
+  "whitford": {
+   "ward": "Whitford",
+   "councillors": [
+    {
+     "name": "Chris Dolphin",
+     "party": "Eagle",
+     "posts": "Cabinet Member for Environment, Regeneration, Countryside and Tourism",
+     "email": "chris.dolphin@flintshire.gov.uk",
+     "photo": "https://committeemeetings.flintshire.gov.uk/UserData/8/3/1/Info00000138/smallpic.jpg",
+     "url": "https://committeemeetings.flintshire.gov.uk/mgUserInfo.aspx?UID=138"
+    }
+   ]
+  }
+ }
+}
