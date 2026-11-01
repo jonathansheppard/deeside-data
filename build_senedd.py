@@ -94,7 +94,7 @@ def main():
             s["sittings"].add(mid)
             if any(t in title for t in CHAIR_TITLES):
                 s["chair"] += 1
-            s["last"].append((dates[mid], mid, r.findtext("Contribution_ID"), (r.findtext("Agenda_item_english") or "").strip()))
+            s["last"].append((dates[mid], mid, r.findtext("Contribution_ID"), (r.findtext("Agenda_item_english") or "").strip(), " ".join(text.split()[:40])))
     import collections
     by_name_count = collections.Counter(n for s in stats.values() for n in s["names"])
     # rank by contributions, leaving out anyone who mainly chairs
@@ -110,7 +110,7 @@ def main():
             act = None
             if s:
                 last, seen = [], set()
-                for d, mid, cid, item in sorted(s["last"], reverse=True):
+                for d, mid, cid, item, _snip in sorted(s["last"], key=lambda x: (x[0], int(x[2] or 0)), reverse=True):
                     if item and item not in seen:
                         seen.add(item)
                         last.append({"date": d, "item": re.sub(r"^\d+\.\s*", "", item), "url": f"https://record.senedd.wales/Plenary/{mid}#C{cid}"})
@@ -121,10 +121,28 @@ def main():
             rows.append({"name": name, "party": PARTY[party][0], "colour": PARTY[party][1], "role": role,
                          "email": email, "phone": phone, "activity": act})
         out[seat] = rows
+    # Feed for the front page widget: latest contributions by the 12 local Members, one per Member per agenda item
+    feed, seen = [], set()
+    local = {(m[0]): (seat, PARTY[m[1]]) for seat, ms in MEMBERS.items() for m in ms}
+    allc = []
+    for name, (seat, (pname, colour)) in local.items():
+        s = stats.get(by_name.get(name))
+        if not s:
+            continue
+        for d, mid, cid, item, snip in s["last"]:
+            allc.append((d, int(cid or 0), mid, name, seat, pname, colour, re.sub(r"^\d+\.\s*", "", item), snip))
+    for d, cid, mid, name, seat, pname, colour, item, snip in sorted(allc, reverse=True):
+        if not item or (name, item) in seen or len(snip.split()) < 8:
+            continue
+        seen.add((name, item))
+        feed.append({"date": d, "name": name, "seat": seat, "party": pname, "colour": colour, "item": item,
+                     "snippet": snip + ("…" if snip else ""), "url": f"https://record.senedd.wales/Plenary/{mid}#C{cid}"})
+        if len(feed) == 12:
+            break
     data = {"updated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
             "source": "Senedd Record of Proceedings (Plenary), Seventh Senedd",
             "sittings": len(sittings), "first": dates[sittings[0]], "last": dates[sittings[-1]], "ranked_of": len(ranked),
-            "westminster_to_senedd": WESTMINSTER_TO_SENEDD, "seats": out}
+            "westminster_to_senedd": WESTMINSTER_TO_SENEDD, "seats": out, "feed": feed}
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n")
     print(f"{datetime.now():%F %R} {len(sittings)} sittings {data['first']} to {data['last']}, {len(ranked)} members ranked")
     for seat, rows in out.items():

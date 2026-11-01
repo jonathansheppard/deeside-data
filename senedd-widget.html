@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your MSs in the Senedd | Deeside.com</title>
+<meta name="robots" content="noindex">
+<!-- Front page widget (1 Nov 2026): latest Plenary contributions by Flintshire's 12 MSs, from senedd.json
+     (built by ~/deeside-data/build_senedd.py from the Senedd Record of Proceedings). ?n= sets how many to show. -->
+<style>
+:root { --green: #88c425; --dark-green: #4d7a0c; --ink: #212529; --head: #2d2d2d; --muted: #6c757d; --line: #e9ecef; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #fff; }
+body { font-family: 'Open Sans', Arial, sans-serif; color: var(--ink); }
+.w { border-top: 4px solid #000001; padding: 10px 12px 8px; }
+.hd { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+h2 { font-size: 16px; font-weight: 800; color: var(--head); margin: 0; letter-spacing: -.2px; }
+.hd span { font-size: 12px; color: var(--muted); white-space: nowrap; }
+.it { display: block; padding: 9px 0; border-bottom: 1px solid var(--line); color: inherit; text-decoration: none; }
+.it:last-of-type { border-bottom: 0; }
+.who { font-size: 13.5px; font-weight: 700; color: var(--head); }
+.who i { display: inline-block; width: 9px; height: 9px; margin-right: 6px; vertical-align: 0; }
+.who small { font-weight: 400; color: var(--muted); }
+.item { font-size: 14.5px; font-weight: 700; line-height: 1.3; margin: 2px 0 2px; color: var(--head); }
+.it:hover .item { text-decoration: underline; }
+.snip { font-size: 13px; color: #444; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.ft { font-size: 12px; color: var(--muted); margin-top: 6px; line-height: 1.45; }
+.ft a { color: var(--dark-green); font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="w"><div class="hd"><h2>Your MSs in the Senedd</h2><span id="upd"></span></div><div id="list"><p class="ft">Loading&hellip;</p></div>
+<p class="ft">What Flintshire&rsquo;s 12 Members of the Senedd said in the chamber, from the official record. <a href="https://www.deeside.com/deeside-in-data/" target="_parent">Find your MSs by postcode</a></p></div>
+<script>
+(function () {
+  var n = parseInt(new URLSearchParams(location.search).get('n') || '5', 10);
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function resize() { try { parent.postMessage({ deesideWidget: 'senedd', height: document.documentElement.scrollHeight }, '*'); } catch (e) {} }
+  function day(s) { var d = new Date(s); return d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }); }
+  fetch('https://jonathansheppard.github.io/deeside-data/senedd.json').then(function (r) { return r.json(); }).then(function (d) {
+    document.getElementById('upd').textContent = 'Latest sitting ' + day(d.last);
+    document.getElementById('list').innerHTML = (d.feed || []).slice(0, n).map(function (f) {
+      return '<a class="it" href="' + esc(f.url) + '" target="_blank" rel="noopener"><div class="who"><i style="background:' + esc(f.colour) + '"></i>' + esc(f.name) + ' <small>' + esc(f.party) + ', ' + esc(f.seat) + ' &middot; ' + day(f.date) + '</small></div>' +
+        '<div class="item">' + esc(f.item) + '</div><div class="snip">' + esc(f.snippet) + '</div></a>';
+    }).join('') || '<p class="ft">Nothing yet.</p>';
+    resize();
+  }).catch(function () { document.getElementById('list').innerHTML = '<p class="ft">Not available right now.</p>'; resize(); });
+  window.addEventListener('load', resize); window.addEventListener('resize', resize);
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(document.body);
+})();
+</script>
+</body>
+</html>

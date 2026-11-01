@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T14:54:08+00:00",
+ "updated": "2026-11-01T15:02:21+00:00",
  "source": "Senedd Record of Proceedings (Plenary), Seventh Senedd",
  "sittings": 27,
  "first": "2026-05-12",
@@ -386,5 +386,127 @@
     }
    }
   ]
- }
+ },
+ "feed": [
+  {
+   "date": "2026-10-21",
+   "name": "Darren Millar",
+   "seat": "Clwyd",
+   "party": "Welsh Conservatives",
+   "colour": "#0087DC",
+   "item": "Welsh Labour Debate: The M4 around Newport",
+   "snippet": "I think we're all interested in the fact that you didn't answer the question that was put to you, which is: why have you changed your mind? I know we're talking about a road to Newport, but it's more like…",
+   "url": "https://record.senedd.wales/Plenary/16318#C780890"
+  },
+  {
+   "date": "2026-10-21",
+   "name": "Carrie Harper",
+   "seat": "Fflint Wrecsam",
+   "party": "Plaid Cymru",
+   "colour": "#005B54",
+   "item": "Short Debate: Full-face coverings are against British values",
+   "snippet": "Diolch, Lywydd. I think we're all entitled to question Reform's real intentions when they raise a debate on face coverings, especially given, just in the last fortnight, a very similar debate was raised in the Scottish Parliament as well, which…",
+   "url": "https://record.senedd.wales/Plenary/16318#C780867"
+  },
+  {
+   "date": "2026-10-21",
+   "name": "Ken Skates",
+   "seat": "Fflint Wrecsam",
+   "party": "Welsh Labour",
+   "colour": "#E4003B",
+   "item": "Welsh Labour Debate: The M4 around Newport",
+   "snippet": "Thank you, Llywydd. Obviously, the subject matter of this debate actually predates devolution. It goes all the way back to the early 1990s, to the John Major Government, when there was failure to deliver back then. And of course, some…",
+   "url": "https://record.senedd.wales/Plenary/16318#C780829"
+  },
+  {
+   "date": "2026-10-21",
+   "name": "Adrian Mason",
+   "seat": "Clwyd",
+   "party": "Reform UK",
+   "colour": "#12B6CF",
+   "item": "Reform UK Debate: Prostate cancer strategy",
+   "snippet": "I'm going to address the men of Wales, and first of all, thank you, Llŷr Powell, for tabling this debate. This is one of those debates where we should be able to put politics to one side. Prostate cancer doesn't…",
+   "url": "https://record.senedd.wales/Plenary/16318#C780762"
+  },
+  {
+   "date": "2026-10-21",
+   "name": "Ken Skates",
+   "seat": "Fflint Wrecsam",
+   "party": "Welsh Labour",
+   "colour": "#E4003B",
+   "item": "Reform UK Debate: Prostate cancer strategy",
+   "snippet": "We were certainly right to set very, very stretching targets for cancer. Obviously, we didn't meet them on all occasions, but I do not apologise for the stretching targets that we set. And of all of those decisions, as I…",
+   "url": "https://record.senedd.wales/Plenary/16318#C780757"
+  },
+  {
+   "date": "2026-10-21",
+   "name": "Llyr Gruffydd",
+   "seat": "Clwyd",
+   "party": "Plaid Cymru",
+   "colour": "#005B54",
+   "item": "Topical Questions",
+   "snippet": "Diolch yn fawr iawn. Natural Resources Wales has confirmed that the fuel discharge has now stopped, with mitigation measures preventing residual fuel from reaching the River Taff. Clean-up and assessment of potential environmental impacts on the river habitat and wildlife…",
+   "url": "https://record.senedd.wales/Plenary/16318#C780711"
+  },
+  {
+   "date": "2026-10-21",
+   "name": "Carrie Harper",
+   "seat": "Fflint Wrecsam",
+   "party": "Plaid Cymru",
+   "colour": "#005B54",
+   "item": "Questions to the Cabinet Minister for Enterprise, Connectivity and Energy",
+   "snippet": "5. How is the Welsh Government supporting businesses to benefit from public procurement spending? OQ64792…",
+   "url": "https://record.senedd.wales/Plenary/16318#C780550"
+  },
+  {
+   "date": "2026-10-21",
+   "name": "Darren Millar",
+   "seat": "Clwyd",
+   "party": "Welsh Conservatives",
+   "colour": "#0087DC",
+   "item": "Questions to the Cabinet Minister for Education and the Welsh Language",
+   "snippet": "Thank you for that answer, Cabinet Minister, but there's a clear link also between attendance and educational outcomes, and we know we've got a huge attendance problem in Wales, with over 100,000 pupils every year missing at least 10 per…",
+   "url": "https://record.senedd.wales/Plenary/16318#C780528"
+  },
+  {
+   "date": "2026-10-21",
+   "name": "Tom Montgomery",
+   "seat": "Clwyd",
+   "party": "Reform UK",
+   "colour": "#12B6CF",
+   "item": "Questions to the Cabinet Minister for Education and the Welsh Language",
+   "snippet": "Can I start by declaring an interest? My wife works in an additional learning needs provision within a school in Conwy. I thank the leader of the Welsh Conservatives for bringing this question forward. Minister, I was speaking to a…",
+   "url": "https://record.senedd.wales/Plenary/16318#C780521"
+  },
+  {
+   "date": "2026-10-21",
+   "name": "Becca Martin",
+   "seat": "Clwyd",
+   "party": "Plaid Cymru",
+   "colour": "#005B54",
+   "item": "Questions to the Cabinet Minister for Enterprise, Connectivity and Energy",
+   "snippet": "Diolch.&nbsp;AI-driven automation is having a growing impact on the labour market and especially on entry-level employment and on workplace learning, and is widening already existing inequalities. Young people at the start of their careers are particularly vulnerable to things like…",
+   "url": "https://record.senedd.wales/Plenary/16318#C780505"
+  },
+  {
+   "date": "2026-10-21",
+   "name": "Sam Rowlands",
+   "seat": "Fflint Wrecsam",
+   "party": "Welsh Conservatives",
+   "colour": "#0087DC",
+   "item": "Questions to the Cabinet Minister for Enterprise, Connectivity and Energy",
+   "snippet": "Cabinet Minister, I heard your response to Lynne Neagle a moment ago, rightfully outlining the challenge around NEETs, but you need to acknowledge that there's a particular problem here in Wales. In England, the numbers have actually dropped in the…",
+   "url": "https://record.senedd.wales/Plenary/16318#C780450"
+  },
+  {
+   "date": "2026-10-20",
+   "name": "Louise Emery",
+   "seat": "Clwyd",
+   "party": "Reform UK",
+   "colour": "#12B6CF",
+   "item": "Statement by the Cabinet Minister for Enterprise, Connectivity and Energy: Update on the National Energy Strategy",
+   "snippet": "Thank you, Minister, for your statement. I want to ask you a question specifically about energy being more affordable from this strategy—and maybe I'm misunderstanding it. I appreciate single home owners can go and purchase solar panels with a grant,…",
+   "url": "https://record.senedd.wales/Plenary/16317#C780203"
+  }
+ ]
 }
