@@ -66,7 +66,7 @@ button:hover { background: var(--dark-green); }
     <input type="text" id="pc" name="pc" placeholder="e.g. CH5 4DA" maxlength="9" autocomplete="postal-code" required>
     <button type="submit">Show my area</button>
   </form>
-  <p class="hint">Your councillors, planning applications, food hygiene ratings, crime, fuel prices and deprivation figures for where you live. Deeside.com doesn't keep your postcode.</p>
+  <p class="hint">Your councillors, planning applications, schools, food hygiene ratings, crime, sewage overflows, fuel prices and deprivation figures for where you live. Deeside.com doesn't keep your postcode.</p>
   <div id="out"></div>
 </div>
 <script>
@@ -76,7 +76,9 @@ button:hover { background: var(--dark-green); }
     wimd: 'https://jonathansheppard.github.io/deeside-data/wimd.json',
     planning: 'https://planning.deeside.com/data/planning.json',
     hygiene: 'https://hygiene.deeside.com/data/fhrs.json',
-    fuel: 'https://fuel.deeside.com/stations.json'
+    fuel: 'https://fuel.deeside.com/stations.json',
+    schools: 'https://jonathansheppard.github.io/deeside-data/schools.json',
+    overflows: 'https://jonathansheppard.github.io/deeside-data/overflows.json'
   };
   var cache = {};
   var out = document.getElementById('out'), input = document.getElementById('pc');
@@ -179,6 +181,39 @@ button:hover { background: var(--dark-green); }
     }).catch(function () { fail('s-fuel'); });
   }
 
+  function schools(lat, lng) {
+    getJSON(DATA.schools).then(function (d) {
+      var all = d.schools.map(function (x) { x._m = miles(lat, lng, x.lat, x.lng); return x; }).sort(function (a, b) { return a._m - b._m; });
+      function line(x) {
+        var bits = [x.sector === 'Special' ? 'Special school' : x.sector, x.lang, x.rel, x.pupils ? x.pupils + ' pupils' : '', dist(x._m)].filter(Boolean);
+        return '<div class="row"><b><a href="https://mylocalschool.gov.wales/School/' + x.id + '?lang=en" target="_blank" rel="noopener">' + esc(x.n) + '</a></b><span>' + esc(bits.join(' · ')) + '</span></div>';
+      }
+      var prim = all.filter(function (x) { return x.sector === 'Primary'; }).slice(0, 3);
+      var sec = all.filter(function (x) { return x.sector === 'Secondary'; }).slice(0, 2);
+      var welsh = all.filter(function (x) { return x.lang === 'Welsh medium' && prim.concat(sec).indexOf(x) < 0; }).slice(0, 1);
+      var html = '<p class="sub" style="margin-top:2px">Primary</p>' + prim.map(line).join('') + '<p class="sub" style="margin-top:6px">Secondary</p>' + sec.map(line).join('');
+      if (welsh.length) html += '<p class="sub" style="margin-top:6px">Nearest Welsh-medium school</p>' + welsh.map(line).join('');
+      html += '<p class="src">Nearest by straight-line distance; catchment areas are set by the council. Each link opens the school’s My Local School page, with its Estyn inspection and results. Source: Welsh Government address list of schools.</p>';
+      fill('s-school', html);
+    }).catch(function () { fail('s-school'); });
+  }
+
+  function overflows(lat, lng) {
+    getJSON(DATA.overflows).then(function (d) {
+      var near = d.overflows.map(function (o) { o._m = miles(lat, lng, o.lat, o.lng); return o; }).filter(function (o) { return o._m <= 2; })
+        .sort(function (a, b) { return (b.h25 || 0) - (a.h25 || 0); });
+      if (!near.length) { fill('s-sewage', '<p class="load">No monitored sewage overflows within two miles of you.</p><a class="more" href="https://www.deeside.com/river-dee-sewage-discharge-map/" target="_parent">See the sewage overflow map</a>'); return; }
+      var hrs = near.reduce(function (t, o) { return t + (o.h25 || 0); }, 0), n = near.reduce(function (t, o) { return t + (o.n25 || 0); }, 0);
+      var html = '<div class="stat"><div><div class="big">' + near.length + '</div><span>monitored overflows within two miles</span></div><div><div class="big">' + n.toLocaleString('en-GB') + '</div><span>spills between them in 2025</span></div><div><div class="big">' + Math.round(hrs).toLocaleString('en-GB') + '</div><span>hours of spills in 2025</span></div></div>';
+      html += '<p class="sub" style="margin-top:6px">Most hours of spills in 2025</p>' + near.slice(0, 4).map(function (o) {
+        var was = o.h24 != null ? ' (' + Math.round(o.h24).toLocaleString('en-GB') + ' hours in 2024)' : '';
+        return '<div class="row"><b>' + esc(o.n) + '</b><span>Into ' + esc(o.w) + ' · ' + dist(o._m) + ' · ' + (o.n25 || 0) + ' spills, ' + Math.round(o.h25 || 0).toLocaleString('en-GB') + ' hours' + was + '</span></div>';
+      }).join('');
+      html += '<p class="src">Welsh Water event duration monitoring. A spill is counted in 12-hour blocks.</p><a class="more" href="https://www.deeside.com/river-dee-sewage-discharge-map/" target="_parent">See which overflows are spilling now</a>';
+      fill('s-sewage', html);
+    }).catch(function () { fail('s-sewage'); });
+  }
+
   function deprivation(p) {
     getJSON(DATA.wimd).then(function (d) {
       var code = p.codes && p.codes.lsoa, e = d.lsoa[code];
@@ -206,12 +241,15 @@ button:hover { background: var(--dark-green); }
       out.innerHTML = '<div class="res"><div class="where"><h2>' + esc(p.postcode) + ': ' + esc(p.admin_ward) + ' ward</h2><p>' + (p.parish ? esc(p.parish) + ' community, ' : '') + 'Flintshire</p></div>' +
         section('s-cllr', 'Your councillors', esc(p.admin_ward) + ' ward') +
         section('s-plan', 'Planning near you', 'Applications within a mile in the last 90 days, newest first') +
+        section('s-school', 'Schools near you', 'The nearest state schools') +
         section('s-food', 'Food hygiene near you', 'Places to eat and buy food within a mile') +
         section('s-crime', 'Crime near you', '') +
+        section('s-sewage', 'Sewage overflows near you', 'Storm overflows within two miles') +
         section('s-fuel', 'Cheapest fuel near you', 'Within five miles, cheapest unleaded first') +
+        '<div class="sec"><h3>Bin collection day</h3><p class="sub">The council’s own lookup needs your full address</p><a class="more" href="https://digital.flintshire.gov.uk/FCC_BinDay" target="_blank" rel="noopener">Find your bin day on the Flintshire County Council website</a></div>' +
         section('s-wimd', 'How your neighbourhood compares', 'Deprivation across Wales') + '</div>';
       resize();
-      councillors(p); planning(lat, lng); hygiene(lat, lng); crime(lat, lng); fuel(lat, lng); deprivation(p);
+      councillors(p); planning(lat, lng); schools(lat, lng); hygiene(lat, lng); crime(lat, lng); overflows(lat, lng); fuel(lat, lng); deprivation(p);
     }).catch(function () { out.innerHTML = '<p class="msg">The postcode service isn’t responding. Please try again in a minute.</p>'; resize(); });
   }
 
