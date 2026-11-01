@@ -66,7 +66,7 @@ button:hover { background: var(--dark-green); }
     <input type="text" id="pc" name="pc" placeholder="e.g. CH5 4DA" maxlength="9" autocomplete="postal-code" required>
     <button type="submit">Show my area</button>
   </form>
-  <p class="hint">Your councillors, planning applications, schools, food hygiene ratings, crime, sewage overflows, broadband, fuel prices and deprivation figures for where you live. Deeside.com doesn't keep your postcode.</p>
+  <p class="hint">Your councillors and MP, planning applications, schools, food hygiene ratings, crime, sewage overflows, broadband, fuel prices and deprivation figures for where you live. Deeside.com doesn't keep your postcode.</p>
   <div id="out"></div>
 </div>
 <script>
@@ -119,6 +119,25 @@ button:hover { background: var(--dark-green); }
           (c.email ? '<a href="mailto:' + esc(c.email) + '">Email</a>' : '') + (c.url ? '<a href="' + esc(c.url) + '" target="_blank" rel="noopener">Profile</a>' : '') + '</div></div>';
       }).join('') + '</div><p class="src">Flintshire County Council</p>');
     }).catch(function () { fail('s-cllr'); });
+  }
+
+  function mp(p) {
+    getJSON('https://jonathansheppard.github.io/deeside-data/mps.json').then(function (d) {
+      var m = d.seats[p.codes && p.codes.parliamentary_constituency];
+      if (!m) { fill('s-mp', '<p class="load">We couldn\u2019t find your MP. <a href="https://members.parliament.uk/FindYourMP" target="_blank" rel="noopener">Find your MP on the Parliament website</a>.</p>'); return; }
+      var pct = m.votes.of ? Math.round(m.votes.voted / m.votes.of * 100) : 0;
+      var html = '<div class="cllr"><img src="' + esc(m.photo) + '" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'"><div><b>' + esc(m.name) + '</b><span>' + esc(m.party) + ', MP for ' + esc(m.constituency) + '</span>' +
+        m.posts.map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('') +
+        (m.email ? '<a href="mailto:' + esc(m.email) + '">Email</a>' : '') + (m.phone ? '<a href="tel:' + esc(m.phone.replace(/\s/g, '')) + '">' + esc(m.phone) + '</a>' : '') +
+        '<a href="' + esc(m.profile) + '" target="_blank" rel="noopener">Profile</a></div></div>';
+      if (m.office) html += '<p class="src" style="margin-top:2px">Constituency office: ' + esc(m.office) + '</p>';
+      html += '<div class="stat" style="margin-top:8px"><div><div class="big">' + pct + '%</div><span>of Commons votes taken part in since July 2024 (' + m.votes.voted + ' of ' + m.votes.of + ')</span></div></div>';
+      if (m.recent && m.recent.length) html += '<p class="sub" style="margin-top:4px">Latest votes</p>' + m.recent.slice(0, 4).map(function (v) {
+        return '<div class="row"><b><a href="' + esc(v.url) + '" target="_blank" rel="noopener">' + esc(cut(v.title, 100)) + '</a><span class="pill ' + (v.vote === 'Aye' ? 'ok' : 'no') + '">' + (v.teller ? 'Teller, ' : '') + esc(v.vote) + '</span></b><span>' + fmtDate(v.date) + '</span></div>';
+      }).join('');
+      html += '<p class="src">UK Parliament. Ministers and whips can vote more often than backbenchers, and not voting is not always a choice: MPs can be paired, ill or on other duties.</p>';
+      fill('s-mp', html);
+    }).catch(function () { fail('s-mp'); });
   }
 
   function planning(lat, lng) {
@@ -250,6 +269,7 @@ button:hover { background: var(--dark-green); }
       var lat = p.latitude, lng = p.longitude;
       out.innerHTML = '<div class="res"><div class="where"><h2>' + esc(p.postcode) + ': ' + esc(p.admin_ward) + ' ward</h2><p>' + (p.parish ? esc(p.parish) + ' community, ' : '') + 'Flintshire</p></div>' +
         section('s-cllr', 'Your councillors', esc(p.admin_ward) + ' ward') +
+        section('s-mp', 'Your MP', esc(p.parliamentary_constituency || '') + ' constituency, UK Parliament') +
         section('s-plan', 'Planning near you', 'Applications within a mile in the last 90 days, newest first') +
         section('s-school', 'Schools near you', 'The nearest state schools') +
         section('s-food', 'Food hygiene near you', 'Places to eat and buy food within a mile') +
@@ -260,7 +280,7 @@ button:hover { background: var(--dark-green); }
         '<div class="sec"><h3>Bin collection day</h3><p class="sub">The council’s own lookup needs your full address</p><a class="more" href="https://digital.flintshire.gov.uk/FCC_BinDay" target="_blank" rel="noopener">Find your bin day on the Flintshire County Council website</a></div>' +
         section('s-wimd', 'How your neighbourhood compares', 'Deprivation across Wales') + '</div>';
       resize();
-      councillors(p); planning(lat, lng); schools(lat, lng); hygiene(lat, lng); crime(lat, lng); overflows(lat, lng); broadband(p); fuel(lat, lng); deprivation(p);
+      councillors(p); mp(p); planning(lat, lng); schools(lat, lng); hygiene(lat, lng); crime(lat, lng); overflows(lat, lng); broadband(p); fuel(lat, lng); deprivation(p);
     }).catch(function () { out.innerHTML = '<p class="msg">The postcode service isn’t responding. Please try again in a minute.</p>'; resize(); });
   }
 

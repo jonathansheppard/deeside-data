@@ -1,0 +1,126 @@
+{
+ "updated": "2026-11-01T14:39:46+00:00",
+ "source": "UK Parliament Members API and Commons Votes API",
+ "seats": {
+  "W07000082": {
+   "constituency": "Alyn and Deeside",
+   "id": 1383,
+   "name": "Sir Mark Tami",
+   "party": "Labour",
+   "colour": "#d50000",
+   "photo": "https://members-api.parliament.uk/api/Members/1383/Thumbnail",
+   "posts": [
+    "Treasurer of HM Household (Deputy Chief Whip, House of Commons)"
+   ],
+   "committees": [
+    "Committee of Selection",
+    "Restoration and Renewal Programme Board",
+    "Speaker's Conference (2024)"
+   ],
+   "email": "tamim@parliament.uk",
+   "phone": "01244 819854",
+   "office": "Deeside Enterprise Centre, Rowleys Drive, CH5 1PP",
+   "website": "",
+   "profile": "https://members.parliament.uk/member/1383/contact",
+   "votes": {
+    "voted": 573,
+    "of": 620,
+    "since": "2024-07-17"
+   },
+   "recent": [
+    {
+     "title": "Draft Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment and Transitional Provision) Regulations 2026",
+     "date": "2026-10-27",
+     "vote": "Aye",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2463"
+    },
+    {
+     "title": "Opposition day motion: Support for British farmers",
+     "date": "2026-10-21",
+     "vote": "No",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2462"
+    },
+    {
+     "title": "Withdrawal Agreement (Windsor Framework and Governance) (Amendment)  Regulations 2026",
+     "date": "2026-10-21",
+     "vote": "Aye",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2461"
+    },
+    {
+     "title": "Draft Code of Practice on Access and Unfair Practices During the Recognition and  Derecognition Process",
+     "date": "2026-10-21",
+     "vote": "Aye",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2460"
+    },
+    {
+     "title": "Draft Railways (Interoperability in Northern Ireland) (Convention on International  Carriage by Rail) (Amendment) Regulations 2026",
+     "date": "2026-10-21",
+     "vote": "Aye",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2459"
+    }
+   ]
+  },
+  "W07000094": {
+   "constituency": "Clwyd East",
+   "id": 5181,
+   "name": "Becky Gittins",
+   "party": "Labour",
+   "colour": "#d50000",
+   "photo": "https://members-api.parliament.uk/api/Members/5181/Thumbnail",
+   "posts": [],
+   "committees": [],
+   "email": "becky.gittins.mp@parliament.uk",
+   "phone": "01352 871130",
+   "office": "",
+   "website": "",
+   "profile": "https://members.parliament.uk/member/5181/contact",
+   "votes": {
+    "voted": 530,
+    "of": 620,
+    "since": "2024-07-17"
+   },
+   "recent": [
+    {
+     "title": "Draft Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment and Transitional Provision) Regulations 2026",
+     "date": "2026-10-27",
+     "vote": "Aye",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2463"
+    },
+    {
+     "title": "Opposition day motion: Support for British farmers",
+     "date": "2026-10-21",
+     "vote": "No",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2462"
+    },
+    {
+     "title": "Withdrawal Agreement (Windsor Framework and Governance) (Amendment)  Regulations 2026",
+     "date": "2026-10-21",
+     "vote": "Aye",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2461"
+    },
+    {
+     "title": "Draft Code of Practice on Access and Unfair Practices During the Recognition and  Derecognition Process",
+     "date": "2026-10-21",
+     "vote": "Aye",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2460"
+    },
+    {
+     "title": "Draft Railways (Interoperability in Northern Ireland) (Convention on International  Carriage by Rail) (Amendment) Regulations 2026",
+     "date": "2026-10-21",
+     "vote": "Aye",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2459"
+    }
+   ]
+  }
+ }
+}
