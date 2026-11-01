@@ -185,8 +185,8 @@ button:hover { background: var(--dark-green); }
     getJSON(DATA.schools).then(function (d) {
       var all = d.schools.map(function (x) { x._m = miles(lat, lng, x.lat, x.lng); return x; }).sort(function (a, b) { return a._m - b._m; });
       function line(x) {
-        var bits = [x.sector === 'Special' ? 'Special school' : x.sector, x.lang, x.rel, x.pupils ? x.pupils + ' pupils' : '', dist(x._m)].filter(Boolean);
-        return '<div class="row"><b><a href="https://mylocalschool.gov.wales/School/' + x.id + '?lang=en" target="_blank" rel="noopener">' + esc(x.n) + '</a></b><span>' + esc(bits.join(' · ')) + '</span></div>';
+        var bits = [x.sector === 'Special' ? 'Special school' : x.sector, x.lang, x.rel, x.pupils ? x.pupils.toLocaleString('en-GB') + ' pupils' : '', dist(x._m)].filter(Boolean);
+        return '<div class="row"><b><a href="https://mylocalschool.gov.wales/School/' + x.id + '?lang=en" target="_blank" rel="noopener">' + esc(x.n.replace(/[\s,]+$/, '')) + '</a></b><span>' + esc(bits.join(' · ')) + '</span></div>';
       }
       var prim = all.filter(function (x) { return x.sector === 'Primary'; }).slice(0, 3);
       var sec = all.filter(function (x) { return x.sector === 'Secondary'; }).slice(0, 2);
