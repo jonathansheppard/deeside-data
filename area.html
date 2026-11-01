@@ -93,7 +93,7 @@ button:hover { background: var(--dark-green); }
     return 2 * R * Math.asin(Math.sqrt(h));
   }
   function dist(m) { return m < 0.1 ? 'under 0.1 miles' : m.toFixed(1) + ' miles'; }
-  function fmtDate(s) { if (!s) return ''; var d = new Date(s); return isNaN(d) ? s : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' }); }
+  function fmtDate(s) { if (!s) return ''; var d = new Date(s); if (isNaN(d)) return s; var o = { day: 'numeric', month: 'short' }; if (d.getFullYear() !== new Date().getFullYear()) o.year = 'numeric'; return d.toLocaleDateString('en-GB', o); }
   function cut(s, n) { s = String(s || ''); return s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : s; }
   function resize() {
     try { parent.postMessage({ deesideWidget: 'area', height: document.documentElement.scrollHeight }, '*'); } catch (e) {}
@@ -111,6 +111,7 @@ button:hover { background: var(--dark-green); }
       var w = d.wards[key(p.admin_ward)];
       if (!w || !w.councillors.length) { fill('s-cllr', '<p class="load">We couldn’t match your ward to the council’s list. <a href="https://committeemeetings.flintshire.gov.uk/mgMemberIndex.aspx" target="_blank" rel="noopener">Find your councillor on the council website</a>.</p>'); return; }
       fill('s-cllr', '<div class="cllrs">' + w.councillors.map(function (c) {
+        if (/^vacan/i.test(c.name)) return '<div class="cllr"><div><b>Vacant seat</b><span>There will be a by-election to fill this seat.</span>' + (c.url ? '<a href="' + esc(c.url) + '" target="_blank" rel="noopener">Details</a>' : '') + '</div></div>';
         return '<div class="cllr">' + (c.photo ? '<img src="' + esc(c.photo) + '" alt="" loading="lazy" onerror="this.style.visibility=\'hidden\'">' : '') +
           '<div><b>' + esc(c.name) + '</b><span>' + esc(c.party) + '</span>' + (c.posts ? '<span>' + esc(cut(c.posts, 90)) + '</span>' : '') +
           (c.email ? '<a href="mailto:' + esc(c.email) + '">Email</a>' : '') + (c.url ? '<a href="' + esc(c.url) + '" target="_blank" rel="noopener">Profile</a>' : '') + '</div></div>';
