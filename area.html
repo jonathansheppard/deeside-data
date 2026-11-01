@@ -98,7 +98,7 @@ button:hover { background: var(--dark-green); }
   function fmtDate(s) { if (!s) return ''; var d = new Date(s); if (isNaN(d)) return s; var o = { day: 'numeric', month: 'short' }; if (d.getFullYear() !== new Date().getFullYear()) o.year = 'numeric'; return d.toLocaleDateString('en-GB', o); }
   function cut(s, n) { s = String(s || ''); return s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, '') + '…' : s; }
   function resize() {
-    try { parent.postMessage({ deesideWidget: 'area', height: document.documentElement.scrollHeight }, '*'); } catch (e) {}
+    try { parent.postMessage({ deesideWidget: 'area', height: Math.ceil(document.body.getBoundingClientRect().height) }, '*'); } catch (e) {}
   }
   function section(id, title, sub) {
     return '<div class="sec" id="' + id + '"><h3>' + title + '</h3>' + (sub ? '<p class="sub">' + sub + '</p>' : '') + '<div class="body"><p class="load">Loading…</p></div></div>';
