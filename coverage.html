@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mobile and broadband coverage | Deeside in Data</title>
+<meta name="robots" content="noindex">
+<!-- Embedded on deeside.com/mobile-phone-coverage-in-deeside/ (1 Nov 2026). Figures from coverage.json and broadband/<district>.json,
+     built on the Mac Mini by ~/deeside-data/build_coverage.py from Ofcom Connected Nations. -->
+<style>
+:root { --green: #88c425; --dark-green: #4d7a0c; --ink: #212529; --head: #2d2d2d; --muted: #6c757d; --line: #e9ecef; --tint: #f6f8f3; --tint-line: #e3e9d8; --red: #c0392b; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #fff; }
+body { font-family: 'Open Sans', Arial, sans-serif; color: var(--ink); font-size: 15px; line-height: 1.5; }
+a { color: var(--dark-green); }
+h2 { font-size: 18px; font-weight: 800; color: var(--head); margin: 0 0 2px; letter-spacing: -.2px; padding-top: 12px; border-top: 4px solid var(--green); }
+.sub { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0 0 18px; }
+.card { background: var(--tint); border: 1px solid var(--tint-line); padding: 10px 12px; }
+.card .v { font-size: 26px; font-weight: 800; color: var(--head); line-height: 1.15; }
+.card .l { font-size: 13.5px; line-height: 1.4; margin-top: 2px; }
+.card .c { font-size: 12.5px; color: var(--muted); margin-top: 5px; }
+.card .c b { color: var(--head); }
+.card .c .bad { color: var(--red); font-weight: 700; }
+form { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 6px; }
+input[type=text] { flex: 1 1 160px; min-width: 0; font: inherit; font-size: 17px; padding: 9px 12px; border: 2px solid #cfd6c4; border-radius: 4px; text-transform: uppercase; }
+input[type=text]:focus { outline: none; border-color: var(--green); }
+button { font: inherit; font-size: 16px; font-weight: 700; padding: 9px 20px; border: 0; border-radius: 4px; background: #000001; color: #fff; cursor: pointer; }
+button:hover { background: var(--dark-green); }
+.res { margin: 8px 0 4px; }
+.res .row { display: grid; grid-template-columns: 1fr 58px; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; }
+.res .row b { text-align: right; color: var(--head); }
+.msg { padding: 9px 12px; background: #fff6e5; border-left: 4px solid #e8a838; font-size: 14px; margin: 8px 0; }
+.note { font-size: 12.5px; color: var(--muted); margin: 10px 0 0; }
+@media (max-width: 480px) { .cards { grid-template-columns: 1fr; } .card .v { font-size: 23px; } }
+</style>
+</head>
+<body>
+<div id="app"><p class="sub">Loading coverage figures&hellip;</p></div>
+<script>
+(function () {
+  var BASE = 'https://jonathansheppard.github.io/deeside-data/';
+  var app = document.getElementById('app');
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function ord(n) { var s = ['th', 'st', 'nd', 'rd'], v = n % 100; return n + (s[(v - 20) % 10] || s[v] || s[0]); }
+  function resize() { try { parent.postMessage({ deesideWidget: 'coverage', height: document.documentElement.scrollHeight }, '*'); } catch (e) {} }
+  function card(m, extra, lowGood) {
+    var better = lowGood ? m.flintshire < m.wales : m.flintshire > m.wales;
+    return '<div class="card"><div class="v">' + m.flintshire + '%</div><div class="l">' + esc(m.label) + '</div><div class="c">Wales ' + m.wales + '% &middot; <span class="' + (better ? '' : 'bad') + '">' + ord(m.rank) + ' of ' + m.of + ' councils</span>' + (extra ? '<br>' + extra : '') + '</div></div>';
+  }
+  fetch(BASE + 'coverage.json').then(function (r) { return r.json(); }).then(function (d) {
+    var m = d.measures, c = d.counts;
+    app.innerHTML =
+      '<h2>Mobile signal in Flintshire</h2><p class="sub">Ofcom predictions for ' + esc(d.release.split(' (')[0]) + '. Rank: 1st is the best of Wales’ 22 councils.</p>' +
+      '<div class="cards">' + card(m['4g_in_all']) + card(m['4g_in_none'], 'About ' + c.no_4g_indoor_premises.toLocaleString('en-GB') + ' homes and businesses', true) +
+      card(m['4g_geo_all']) + card(m['5g_out_any']) + '</div>' +
+      '<h2>Broadband in Flintshire</h2><p class="sub">Share of ' + c.premises.toLocaleString('en-GB') + ' homes and businesses.</p>' +
+      '<div class="cards">' + card(m.gigabit) + card(m.full_fibre) + card(m.under_10, c.under_10_premises.toLocaleString('en-GB') + ' homes and businesses', true) + '</div>' +
+      '<h2>Check your postcode</h2><p class="sub">Broadband at your postcode, from Ofcom. Mobile coverage isn’t published by postcode, so use Ofcom’s own map for that (link below).</p>' +
+      '<form id="f"><input type="text" id="pc" placeholder="e.g. CH5 4DA" maxlength="9" autocomplete="postal-code" required><button type="submit">Check</button></form><div id="out"></div>' +
+      '<p class="note">Mobile: <a href="https://www.ofcom.org.uk/mobile-coverage-checker" target="_blank" rel="noopener">Ofcom Map Your Mobile</a> shows each network’s predicted signal at your address. Broadband by address: <a href="https://checker.ofcom.org.uk/en-gb/broadband-coverage" target="_blank" rel="noopener">Ofcom broadband checker</a>.<br>Source: ' + esc(d.source) + ', ' + esc(d.release) + '. Ofcom’s mobile figures are predictions of where signal should reach, and real-world signal can be worse indoors, in valleys and in busy places.</p>';
+    document.getElementById('f').addEventListener('submit', function (e) { e.preventDefault(); check(document.getElementById('pc').value); });
+    var q = new URLSearchParams(location.search).get('pc'); if (q) { document.getElementById('pc').value = q; check(q); }
+    resize();
+  }).catch(function () { app.innerHTML = '<p class="msg">Coverage figures aren’t available right now.</p>'; resize(); });
+
+  function check(pc) {
+    var out = document.getElementById('out');
+    pc = pc.replace(/\s+/g, '').toUpperCase();
+    var m = pc.match(/^([A-Z]{1,2}[0-9][0-9A-Z]?)([0-9][A-Z]{2})$/);
+    if (!m) { out.innerHTML = '<p class="msg">That doesn’t look like a full postcode. Try something like CH5 4DA.</p>'; resize(); return; }
+    fetch(BASE + 'broadband/' + m[1] + '.json').then(function (r) { if (!r.ok) throw 404; return r.json(); }).then(function (d) {
+      var v = d.postcodes[pc];
+      if (!v) { out.innerHTML = '<p class="msg">No Ofcom figures for ' + esc(m[1] + ' ' + m[2]) + '. It may be a business-only or new postcode.</p>'; resize(); return; }
+      out.innerHTML = '<div class="res"><div class="row"><span>Premises that can get gigabit broadband</span><b>' + v[0] + '%</b></div>' +
+        '<div class="row"><span>Premises that can get superfast (30Mbit/s or more)</span><b>' + v[1] + '%</b></div>' +
+        '<div class="row"><span>Premises that cannot get 10Mbit/s</span><b>' + v[2] + '%</b></div></div>';
+      resize();
+    }).catch(function () { out.innerHTML = '<p class="msg">This checker covers Flintshire postcodes only.</p>'; resize(); });
+  }
+  window.addEventListener('resize', resize);
+  if (window.ResizeObserver) new ResizeObserver(resize).observe(document.body);
+})();
+</script>
+</body>
+</html>

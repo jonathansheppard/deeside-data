@@ -1,0 +1,125 @@
+{
+ "release": "January 2026 (Ofcom Connected Nations spring 2026 update)",
+ "source": "Ofcom Connected Nations",
+ "measures": {
+  "4g_in_all": {
+   "label": "Homes and businesses with indoor 4G from all four networks",
+   "unit": "%",
+   "flintshire": 78.0,
+   "wales": 86.7,
+   "rank": 17,
+   "of": 22,
+   "best": {
+    "name": "Cardiff",
+    "value": 98.0
+   },
+   "worst": {
+    "name": "Isle Of Anglesey",
+    "value": 69.9
+   }
+  },
+  "4g_in_none": {
+   "label": "Homes and businesses with no indoor 4G from any network",
+   "unit": "%",
+   "flintshire": 0.4,
+   "wales": 0.8,
+   "rank": 12,
+   "of": 22,
+   "best": {
+    "name": "Cardiff",
+    "value": 0.0
+   },
+   "worst": {
+    "name": "Ceredigion",
+    "value": 4.3
+   }
+  },
+  "4g_geo_all": {
+   "label": "Land area with outdoor 4G from all four networks",
+   "unit": "%",
+   "flintshire": 95.3,
+   "wales": 79.8,
+   "rank": 3,
+   "of": 22,
+   "best": {
+    "name": "Newport",
+    "value": 99.0
+   },
+   "worst": {
+    "name": "Gwynedd",
+    "value": 72.2
+   }
+  },
+  "5g_out_any": {
+   "label": "Homes and businesses with outdoor 5G from at least one network",
+   "unit": "%",
+   "flintshire": 84.5,
+   "wales": 93.7,
+   "rank": 18,
+   "of": 22,
+   "best": {
+    "name": "Cardiff",
+    "value": 100.0
+   },
+   "worst": {
+    "name": "Powys",
+    "value": 69.2
+   }
+  },
+  "gigabit": {
+   "label": "Homes and businesses that can get gigabit broadband",
+   "unit": "%",
+   "flintshire": 90.8,
+   "wales": 83.1,
+   "rank": 6,
+   "of": 22,
+   "best": {
+    "name": "Cardiff",
+    "value": 94.4
+   },
+   "worst": {
+    "name": "Ceredigion",
+    "value": 58.7
+   }
+  },
+  "full_fibre": {
+   "label": "Homes and businesses that can get full fibre",
+   "unit": "%",
+   "flintshire": 90.8,
+   "wales": 80.8,
+   "rank": 2,
+   "of": 22,
+   "best": {
+    "name": "Bridgend",
+    "value": 93.1
+   },
+   "worst": {
+    "name": "Ceredigion",
+    "value": 58.7
+   }
+  },
+  "under_10": {
+   "label": "Homes and businesses that cannot get 10Mbit/s broadband",
+   "unit": "%",
+   "flintshire": 1.1,
+   "wales": 1.5,
+   "rank": 12,
+   "of": 22,
+   "best": {
+    "name": "Caerphilly",
+    "value": 0.1
+   },
+   "worst": {
+    "name": "Powys",
+    "value": 6.8
+   }
+  }
+ },
+ "counts": {
+  "premises": 76379,
+  "under_10_premises": 803,
+  "no_decent_premises": 91,
+  "gigabit_premises": 69319,
+  "no_4g_indoor_premises": 282
+ }
+}

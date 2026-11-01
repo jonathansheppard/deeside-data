@@ -66,7 +66,7 @@ button:hover { background: var(--dark-green); }
     <input type="text" id="pc" name="pc" placeholder="e.g. CH5 4DA" maxlength="9" autocomplete="postal-code" required>
     <button type="submit">Show my area</button>
   </form>
-  <p class="hint">Your councillors, planning applications, schools, food hygiene ratings, crime, sewage overflows, fuel prices and deprivation figures for where you live. Deeside.com doesn't keep your postcode.</p>
+  <p class="hint">Your councillors, planning applications, schools, food hygiene ratings, crime, sewage overflows, broadband, fuel prices and deprivation figures for where you live. Deeside.com doesn't keep your postcode.</p>
   <div id="out"></div>
 </div>
 <script>
@@ -214,6 +214,16 @@ button:hover { background: var(--dark-green); }
     }).catch(function () { fail('s-sewage'); });
   }
 
+  function broadband(p) {
+    var pc = p.postcode.replace(/\s+/g, ''), dist = p.postcode.split(' ')[0];
+    getJSON('https://jonathansheppard.github.io/deeside-data/broadband/' + dist + '.json').then(function (d) {
+      var v = d.postcodes[pc];
+      if (!v) { fill('s-bb', '<p class="load">No Ofcom broadband figures for this postcode.</p>'); return; }
+      fill('s-bb', '<div class="stat"><div><div class="big">' + v[0] + '%</div><span>of premises can get gigabit broadband</span></div><div><div class="big">' + v[1] + '%</div><span>can get superfast (30Mbit/s+)</span></div>' + (v[2] ? '<div><div class="big">' + v[2] + '%</div><span>cannot get 10Mbit/s</span></div>' : '') + '</div>' +
+        '<p class="src">Ofcom Connected Nations, January 2026. Mobile signal isn\u2019t published by postcode: <a href="https://www.ofcom.org.uk/mobile-coverage-checker" target="_blank" rel="noopener">check it on Ofcom\u2019s map</a>.</p><a class="more" href="https://www.deeside.com/mobile-phone-coverage-in-deeside/" target="_parent">Mobile and broadband coverage in Flintshire</a>');
+    }).catch(function () { fail('s-bb'); });
+  }
+
   function deprivation(p) {
     getJSON(DATA.wimd).then(function (d) {
       var code = p.codes && p.codes.lsoa, e = d.lsoa[code];
@@ -245,11 +255,12 @@ button:hover { background: var(--dark-green); }
         section('s-food', 'Food hygiene near you', 'Places to eat and buy food within a mile') +
         section('s-crime', 'Crime near you', '') +
         section('s-sewage', 'Sewage overflows near you', 'Storm overflows within two miles') +
+        section('s-bb', 'Broadband at your postcode', '') +
         section('s-fuel', 'Cheapest fuel near you', 'Within five miles, cheapest unleaded first') +
         '<div class="sec"><h3>Bin collection day</h3><p class="sub">The council’s own lookup needs your full address</p><a class="more" href="https://digital.flintshire.gov.uk/FCC_BinDay" target="_blank" rel="noopener">Find your bin day on the Flintshire County Council website</a></div>' +
         section('s-wimd', 'How your neighbourhood compares', 'Deprivation across Wales') + '</div>';
       resize();
-      councillors(p); planning(lat, lng); schools(lat, lng); hygiene(lat, lng); crime(lat, lng); overflows(lat, lng); fuel(lat, lng); deprivation(p);
+      councillors(p); planning(lat, lng); schools(lat, lng); hygiene(lat, lng); crime(lat, lng); overflows(lat, lng); broadband(p); fuel(lat, lng); deprivation(p);
     }).catch(function () { out.innerHTML = '<p class="msg">The postcode service isn’t responding. Please try again in a minute.</p>'; resize(); });
   }
 
