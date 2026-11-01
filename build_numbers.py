@@ -112,11 +112,21 @@ def trains():
             "link": "https://www.deeside.com/wrexham-bidston-line/"}
 
 
+def nhs():
+    # North Wales A&E, from rankings.json (NHS figures, updated monthly by hand for now)
+    d = load(OUT_DIR / "rankings.json")
+    m = next(x for x in d["nhs"] if x["key"] == "ed4")
+    return {"key": "nhs", "label": "North Wales A&E within 4 hours", "value": f"{m['value']:.0f}%",
+            "context": f"Betsi Cadwaladr, {m['period']}. Wales {m['wales']:.0f}%, target 95%. Worst of the six health boards with a major A&E" if m["rank"] == m["of"] else f"Betsi Cadwaladr, {m['period']}. Wales {m['wales']:.0f}%, target 95%",
+            "date": m["period"], "source": "Welsh Government (StatsWales)",
+            "link": "https://www.deeside.com/deeside-in-data/"}
+
+
 def main():
     manual = load(OUT_DIR / "manual.json")
     out = []
     for name, fn in [("council_tax", lambda: council_tax(manual)), ("planning", planning), ("hygiene", hygiene),
-                     ("fuel", fuel), ("crime", crime), ("trains", trains)]:
+                     ("fuel", fuel), ("crime", crime), ("trains", trains), ("nhs", nhs)]:
         try:
             out.append(fn())
         except Exception as e:

@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-01T13:15:00+00:00",
+ "updated": "2026-11-01T14:02:18+00:00",
  "numbers": [
   {
    "key": "council_tax",
@@ -54,6 +54,15 @@
    "date": "31 October 2026",
    "source": "National Rail performance data",
    "link": "https://www.deeside.com/wrexham-bidston-line/"
+  },
+  {
+   "key": "nhs",
+   "label": "North Wales A&E within 4 hours",
+   "value": "57%",
+   "context": "Betsi Cadwaladr, September 2026. Wales 64%, target 95%. Worst of the six health boards with a major A&E",
+   "date": "September 2026",
+   "source": "Welsh Government (StatsWales)",
+   "link": "https://www.deeside.com/deeside-in-data/"
   }
  ]
 }

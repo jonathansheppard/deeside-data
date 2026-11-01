@@ -236,5 +236,110 @@
     5.97
    ]
   }
+ ],
+ "nhs": [
+  {
+   "key": "ed4",
+   "label": "A&E patients seen within four hours",
+   "period": "September 2026",
+   "unit": "%",
+   "dp": 1,
+   "better": "high",
+   "note": "Share of patients who spent less than four hours in A&E. The target is 95%. Powys has no major A&E so is left out",
+   "source": "Welsh Government (StatsWales)",
+   "wales": 63.94,
+   "focus": "Betsi Cadwaladr",
+   "value": 57.43,
+   "flintshire": 57.43,
+   "rank": 6,
+   "joint": false,
+   "of": 6,
+   "of_label": "health boards",
+   "best": {
+    "name": "Swansea Bay",
+    "value": 71.29
+   },
+   "worst": {
+    "name": "Betsi Cadwaladr",
+    "value": 57.43
+   },
+   "values": [
+    71.29,
+    69.49,
+    66.8,
+    59.29,
+    58.68,
+    57.43
+   ]
+  },
+  {
+   "key": "ed12",
+   "label": "A&E patients there 12 hours or more",
+   "period": "September 2026",
+   "unit": "%",
+   "dp": 1,
+   "better": "low",
+   "note": "Share of patients who spent 12 hours or more in A&E. The target is that nobody waits that long. Powys has no major A&E so is left out",
+   "source": "Welsh Government (StatsWales)",
+   "wales": 11.77,
+   "focus": "Betsi Cadwaladr",
+   "value": 17.52,
+   "flintshire": 17.52,
+   "rank": 6,
+   "joint": false,
+   "of": 6,
+   "of_label": "health boards",
+   "best": {
+    "name": "Cardiff and Vale",
+    "value": 8.89
+   },
+   "worst": {
+    "name": "Betsi Cadwaladr",
+    "value": 17.52
+   },
+   "values": [
+    8.89,
+    9.52,
+    9.56,
+    10.16,
+    13.05,
+    17.52
+   ]
+  },
+  {
+   "key": "red",
+   "label": "Ambulance response to life-threatening calls",
+   "period": "September 2026",
+   "unit": "time",
+   "dp": 0,
+   "better": "low",
+   "note": "Median time for an ambulance to reach red (immediately life-threatening) calls",
+   "source": "Welsh Government (StatsWales)",
+   "wales": 572,
+   "focus": "Betsi Cadwaladr",
+   "value": 554,
+   "flintshire": 554,
+   "rank": 3,
+   "joint": false,
+   "of": 7,
+   "of_label": "health boards",
+   "best": {
+    "name": "Aneurin Bevan",
+    "value": 482
+   },
+   "worst": {
+    "name": "Powys",
+    "value": 858
+   },
+   "values": [
+    482,
+    542,
+    554,
+    599,
+    624,
+    697,
+    858
+   ]
+  }
  ]
 }

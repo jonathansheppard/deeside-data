@@ -41,6 +41,39 @@ M = [
         "Bridgend": 4.91, "Vale of Glamorgan": 5.09, "Cardiff": 5.92, "Rhondda Cynon Taf": 5.18, "Caerphilly": 5.48,
         "Blaenau Gwent": 5.15, "Torfaen": 5.66, "Monmouthshire": 5.37, "Newport": 5.97, "Powys": 4.47, "Merthyr Tydfil": 5.06}},
 ]
+# North Wales NHS: Betsi Cadwaladr against the other Welsh health boards (rank 1 = best for patients)
+ED4 = {"Betsi Cadwaladr": 57.43, "Hywel Dda": 66.80, "Swansea Bay": 71.29, "Cardiff and Vale": 59.29, "Cwm Taf Morgannwg": 58.68, "Aneurin Bevan": 69.49}
+ED12 = {"Betsi Cadwaladr": 82.48, "Hywel Dda": 89.84, "Swansea Bay": 90.48, "Cardiff and Vale": 91.11, "Cwm Taf Morgannwg": 86.95, "Aneurin Bevan": 90.44}
+N = [
+ {"key": "ed4", "label": "A&E patients seen within four hours", "period": "September 2026", "unit": "%", "dp": 1, "better": "high",
+  "note": "Share of patients who spent less than four hours in A&E. The target is 95%. Powys has no major A&E so is left out",
+  "source": "Welsh Government (StatsWales)", "wales": 63.94, "v": ED4},
+ {"key": "ed12", "label": "A&E patients there 12 hours or more", "period": "September 2026", "unit": "%", "dp": 1, "better": "low",
+  "note": "Share of patients who spent 12 hours or more in A&E. The target is that nobody waits that long. Powys has no major A&E so is left out",
+  "source": "Welsh Government (StatsWales)", "wales": round(100 - 88.23, 2), "v": {k: round(100 - x, 2) for k, x in ED12.items()}},
+ {"key": "red", "label": "Ambulance response to life-threatening calls", "period": "September 2026", "unit": "time", "dp": 0, "better": "low",
+  "note": "Median time for an ambulance to reach red (immediately life-threatening) calls",
+  "source": "Welsh Government (StatsWales)", "wales": 9 * 60 + 32,
+  "v": {"Betsi Cadwaladr": 554, "Powys": 858, "Hywel Dda": 697, "Aneurin Bevan": 482, "Cardiff and Vale": 542, "Cwm Taf Morgannwg": 624, "Swansea Bay": 599}},
+]
+
+
+def ranked(m, focus, of_label):
+    v = m.pop("v")
+    rev = m["better"] == "high"
+    order = sorted(v.items(), key=lambda kv: kv[1], reverse=rev)
+    f = v[focus]
+    r = 1 + sum(1 for y in v.values() if (y > f if rev else y < f))
+    m.update({"focus": focus, "value": f, "flintshire": f, "rank": r, "joint": sum(1 for y in v.values() if y == f) > 1,
+              "of": len(v), "of_label": of_label,
+              "best": {"name": order[0][0], "value": order[0][1]}, "worst": {"name": order[-1][0], "value": order[-1][1]},
+              "values": sorted(v.values(), reverse=rev)})
+    print(m["key"], focus, f, "rank", r, "of", len(v))
+    return m
+
+
+nhs_out = [ranked(m, "Betsi Cadwaladr", "health boards") for m in N]
+
 out = []
 for m in M:
     v = m.pop("v")
@@ -54,4 +87,4 @@ for m in M:
               "values": sorted(v.values(), reverse=rev)})
     out.append(m)
     print(m["key"], f, "rank", r, "joint" if joint else "")
-json.dump({"updated": "2026-11-01", "measures": out}, open("rankings.json", "w"), ensure_ascii=False, indent=1)
+json.dump({"updated": "2026-11-01", "measures": out, "nhs": nhs_out}, open("rankings.json", "w"), ensure_ascii=False, indent=1)
