@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-03T07:15:01+00:00",
+ "updated": "2026-11-03T13:15:01+00:00",
  "numbers": [
   {
    "key": "council_tax",
@@ -31,8 +31,8 @@
   {
    "key": "fuel",
    "label": "Cheapest unleaded in Flintshire",
-   "value": "163.6p",
-   "context": "At Rhydymwyn Service Station. UK average 171.7p",
+   "value": "161.5p",
+   "context": "At Rhydymwyn Service Station. UK average 171.6p",
    "date": "3 November 2026",
    "source": "GOV.UK Fuel Finder scheme",
    "link": "https://www.deeside.com/fuel-price-map/"
@@ -49,9 +49,9 @@
   {
    "key": "trains",
    "label": "Borderlands trains on time",
-   "value": "55%",
-   "context": "Wrexham to Bidston trains within 3 minutes of time over the last 7 days; 40 of 264 cancelled",
-   "date": "1 November 2026",
+   "value": "63%",
+   "context": "Wrexham to Bidston trains within 3 minutes of time over the last 7 days; 29 of 264 cancelled",
+   "date": "2 November 2026",
    "source": "National Rail performance data",
    "link": "https://www.deeside.com/wrexham-bidston-line/"
   },
