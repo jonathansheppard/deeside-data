@@ -2,6 +2,7 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
+<script>window.__e = fetch('https://jonathansheppard.github.io/deeside-data/senedd.json?t=' + Math.floor(Date.now() / 600000)).then(function (r) { return r.json(); });</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Your MSs in the Senedd | Deeside.com</title>
 <meta name="robots" content="noindex">
@@ -37,7 +38,7 @@ h2 { font-size: 16px; font-weight: 800; color: var(--head); margin: 0; letter-sp
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
   function resize() { try { parent.postMessage({ deesideWidget: 'senedd', height: Math.ceil(document.body.getBoundingClientRect().height) }, '*'); } catch (e) {} }
   function day(s) { var d = new Date(s); return d.toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' }); }
-  fetch('https://jonathansheppard.github.io/deeside-data/senedd.json?t=' + Math.floor(Date.now() / 600000)).then(function (r) { return r.json(); }).then(function (d) {
+  (window.__e || fetch('https://jonathansheppard.github.io/deeside-data/senedd.json?t=' + Math.floor(Date.now() / 600000)).then(function (r) { return r.json(); })).then(function (d) {
     document.getElementById('upd').textContent = 'Latest sitting ' + day(d.last);
     document.getElementById('list').innerHTML = (d.feed || []).slice(0, n).map(function (f) {
       return '<a class="it" href="' + esc(f.url) + '" target="_blank" rel="noopener"><div class="who"><i style="background:' + esc(f.colour) + '"></i>' + esc(f.name) + ' <small>' + esc(f.party) + ', ' + esc(f.seat) + ' &middot; ' + day(f.date) + '</small></div>' +
