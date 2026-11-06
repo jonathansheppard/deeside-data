@@ -2,15 +2,15 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
+<meta name="robots" content="noindex">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Road collisions in Flintshire | Deeside in Data</title>
-<meta name="robots" content="noindex">
 <!-- Built from collisions.json (~/deeside-data/build_collisions.py, DfT STATS19). Made to be embedded in a deeside.com page. -->
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap"></noscript>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script>window.__e = fetch('collisions.json?t=' + Math.floor(Date.now() / 3600000)).then(function (r) { return r.json(); });</script>
 <style>
-:root { --green: #88c425; --dark-green: #4d7a0c; --ink: #212529; --head: #2d2d2d; --muted: #6c757d; --line: #e9ecef; --tint: #f6f8f3; --tint-line: #e3e9d8; --red: #c0392b; --fatal: #111111; --serious: #c0392b; --slight: #e0a33a; }
+:root { --green: #88c425; --dark-green: #4d7a0c; --ink: #212529; --head: #2d2d2d; --muted: #6c757d; --line: #e9ecef; --tint: #f6f8f3; --tint-line: #e3e9d8; --fatal: #111111; --serious: #c0392b; --slight: #e0a33a; }
 * { box-sizing: border-box; }
 html, body { margin: 0; background: #fff; }
 body { font-family: 'Open Sans', Arial, sans-serif; color: var(--ink); font-size: 15px; line-height: 1.5; }
@@ -18,11 +18,15 @@ a { color: var(--dark-green); }
 h2 { font-size: 18px; font-weight: 800; color: var(--head); margin: 18px 0 2px; letter-spacing: -.2px; padding-top: 12px; border-top: 4px solid var(--green); }
 h2:first-child { margin-top: 0; }
 .sub { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
-.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0 0 6px; }
+.yearbar { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 12px; }
+.yearbar button { font: inherit; font-size: 14px; font-weight: 700; padding: 7px 12px; min-height: 40px; border: 1px solid #cfd6c4; border-radius: 4px; background: #fff; color: var(--head); cursor: pointer; }
+.yearbar button.on { background: var(--dark-green); border-color: var(--dark-green); color: #fff; }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0 0 4px; }
 @media (min-width: 640px) { .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
 .card { background: var(--tint); border: 1px solid var(--tint-line); padding: 10px 12px; }
 .card .v { font-size: 26px; font-weight: 800; color: var(--head); line-height: 1.15; }
 .card .l { font-size: 13px; line-height: 1.35; margin-top: 2px; }
+.toll { font-size: 13px; color: var(--muted); margin: 6px 0 0; }
 .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
 .filters select { font: inherit; font-size: 14px; padding: 8px 10px; border: 1px solid #cfd6c4; border-radius: 4px; background: #fff; min-height: 40px; }
 #map { height: 460px; border: 1px solid var(--line); }
@@ -38,19 +42,22 @@ tr.go:hover td { background: var(--tint); }
 .bars .b { height: 16px; background: var(--line); position: relative; }
 .bars .b i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--green); }
 .bars .b em { position: absolute; left: 0; top: 0; bottom: 0; background: var(--serious); }
+.bars span.on { font-weight: 800; color: var(--head); }
 .notes { font-size: 12.5px; color: var(--muted); margin-top: 16px; }
+.notes p { margin: 0 0 8px; }
 .leaflet-popup-content { font-family: 'Open Sans', Arial, sans-serif; font-size: 13px; line-height: 1.45; margin: 10px 12px; }
 </style>
 </head>
 <body>
 <h2>Road collisions in Flintshire</h2>
-<p class="sub" id="span">Injury collisions reported to police</p>
+<p class="sub" id="span">Collisions where someone was hurt, reported to police</p>
+<div class="yearbar" id="years-pick" role="group" aria-label="Choose a year"></div>
 <div class="cards" id="cards"></div>
+<p class="toll" id="toll"></p>
 
 <h2>Map</h2>
-<p class="sub">Every injury collision with a location. Tap a dot for details.</p>
+<p class="sub">Each dot is one collision. Tap a dot for details.</p>
 <div class="filters">
-  <select id="fy" aria-label="Year"><option value="">All years</option></select>
   <select id="fs" aria-label="Severity"><option value="">All severities</option><option value="ksi">Fatal or serious</option><option value="fatal">Fatal</option><option value="serious">Serious</option><option value="slight">Slight</option></select>
   <select id="fu" aria-label="Who was hurt"><option value="">Everyone</option><option value="ped">Pedestrians</option><option value="cyc">Cyclists</option><option value="moto">Motorcyclists</option><option value="child">Children under 16</option></select>
 </div>
@@ -62,71 +69,129 @@ tr.go:hover td { background: var(--tint); }
 <div class="bars" id="years"></div>
 
 <h2>Roads with the most collisions</h2>
-<p class="sub">A and B roads, by the road the collision was recorded on</p>
-<table><thead><tr><th>Road</th><th class="n">Collisions</th><th class="n">Fatal or serious</th><th class="n">Deaths</th></tr></thead><tbody id="roads"></tbody></table>
+<p class="sub" id="roads-sub">A and B roads, by the road the collision was recorded on</p>
+<table><thead><tr><th>Road</th><th class="n">Collisions</th><th class="n">Fatal or serious</th></tr></thead><tbody id="roads"></tbody></table>
 
 <h2>Clusters</h2>
-<p class="sub">Places with four or more collisions within about 250 metres. Tap one to see it on the map.</p>
+<p class="sub" id="spots-sub"></p>
 <table><thead><tr><th>Near</th><th>Roads</th><th class="n">Collisions</th><th class="n">Fatal or serious</th></tr></thead><tbody id="spots"></tbody></table>
 
-<p class="notes">Source: Department for Transport road casualty statistics (STATS19), Open Government Licence v3. Only collisions where someone was hurt and police were told are included; damage-only crashes aren't. "Serious" covers injuries such as broken bones or a hospital stay. Locations are as recorded by North Wales Police and can be approximate. Built by Deeside.com.</p>
+<div class="notes">
+<p>Source: Department for Transport road casualty statistics (STATS19), Open Government Licence v3. Only collisions where someone was hurt and police were told are included; crashes with damage only are not. "Serious" covers injuries such as broken bones or a stay in hospital.</p>
+<p>Locations: police officers who attend record each collision as a single point on the Ordnance Survey National Grid, usually to within 1 to 10 metres, with a written description. Councils can correct a location using their knowledge of the road, and the Department for Transport carries out quality checks, but some errors may remain.</p>
+<p>Built by Deeside.com.</p>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 const esc = s => String(s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
 const n = x => Number(x).toLocaleString('en-GB');
 const COL = {fatal: '#111111', serious: '#c0392b', slight: '#e0a33a'};
+const ksi = x => x.s !== 'slight';
 const map = L.map('map', {scrollWheelZoom: false}).setView([53.2, -3.12], 11);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'}).addTo(map);
 const layer = L.layerGroup().addTo(map);
-let D;
+let D, YEAR = 0;
+const placeCache = {};
 
 function fmtDate(iso) { return new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric'}); }
-function who(x) {
+function hurt(x) {
   const p = [];
-  if (x.killed) p.push(`${x.killed} killed`);
-  if (x.seriously) p.push(`${x.seriously} seriously hurt`);
-  const sl = x.cas - x.killed - x.seriously; if (sl > 0) p.push(`${sl} slightly hurt`);
+  if (x.killed) p.push(`${x.killed} died`);
+  if (x.seriously) p.push(`${x.seriously} seriously injured`);
+  const sl = x.cas - x.killed - x.seriously; if (sl > 0) p.push(`${sl} slightly injured`);
   const t = [x.ped && 'pedestrian', x.cyc && 'cyclist', x.moto && 'motorcyclist', x.child && 'child'].filter(Boolean);
-  return p.join(', ') + (t.length ? ` (involving ${t.join(', ')})` : '');
+  return p.join(', ') + (t.length ? ` (involving a ${t.join(', ')})` : '');
 }
-function draw() {
-  const y = +document.getElementById('fy').value || 0, s = document.getElementById('fs').value, u = document.getElementById('fu').value;
+const inYear = () => D.collisions.filter(x => !YEAR || x.y === YEAR);
+const period = () => YEAR ? `in ${YEAR}` : `${D.years[0]} to ${D.years[1]}`;
+
+function cards() {
+  const xs = inYear();
+  const fatal = xs.filter(x => x.s === 'fatal').length, serious = xs.filter(x => x.s === 'serious').length;
+  document.getElementById('cards').innerHTML = [
+    [n(xs.length), `collisions where someone was hurt, ${period()}`],
+    [n(serious), 'caused serious injuries'],
+    [n(fatal), 'were fatal'],
+    [n(xs.filter(x => x.ped || x.cyc).length), 'involved a pedestrian or cyclist'],
+  ].map(([v, l]) => `<div class="card"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+  const died = xs.reduce((a, x) => a + x.killed, 0), si = xs.reduce((a, x) => a + x.seriously, 0);
+  document.getElementById('toll').textContent = `${n(died)} ${died === 1 ? 'person' : 'people'} died and ${n(si)} ${si === 1 ? 'was' : 'were'} seriously injured in these collisions.`;
+}
+
+function drawMap() {
+  const s = document.getElementById('fs').value, u = document.getElementById('fu').value;
   layer.clearLayers();
   const order = {slight: 0, serious: 1, fatal: 2};
-  const xs = D.collisions.filter(x => (!y || x.y === y) && (!s || (s === 'ksi' ? x.s !== 'slight' : x.s === s)) && (!u || x[u] > 0))
-    .sort((a, b) => order[a.s] - order[b.s]);
+  const xs = inYear().filter(x => (!s || (s === 'ksi' ? ksi(x) : x.s === s)) && (!u || x[u] > 0)).sort((a, b) => order[a.s] - order[b.s]);
   xs.forEach(x => L.circleMarker([x.lat, x.lon], {radius: x.s === 'slight' ? 4 : 6, color: '#fff', weight: 1, fillColor: COL[x.s], fillOpacity: .9})
-    .bindPopup(`<b>${x.s[0].toUpperCase() + x.s.slice(1)} collision</b><br>${fmtDate(x.d)}, ${esc(x.t)}<br>${esc(x.road)}${x.road2 && x.road2 !== x.road ? ' / ' + esc(x.road2) : ''}${x.limit ? `, ${esc(x.limit)}mph limit` : ''}<br>${x.veh} vehicle${x.veh === 1 ? '' : 's'}, ${who(x)}`).addTo(layer));
+    .bindPopup(`<b>${x.s[0].toUpperCase() + x.s.slice(1)} collision</b><br>${fmtDate(x.d)}, ${esc(x.t)}<br>${esc(x.road)}${x.road2 && x.road2 !== x.road ? ' / ' + esc(x.road2) : ''}${x.limit ? `, ${esc(x.limit)}mph limit` : ''}<br>${x.veh} vehicle${x.veh === 1 ? '' : 's'}; ${hurt(x)}`).addTo(layer));
   document.getElementById('shown').textContent = `${n(xs.length)} shown`;
 }
 
-fetch('collisions.json?t=' + Math.floor(Date.now() / 3600000)).then(r => r.json()).then(d => {
-  D = d;
-  const [y0, y1] = d.years, all = d.by_year, last = all[all.length - 1];
-  document.getElementById('span').textContent = `Injury collisions reported to police, ${y0} to ${y1}`;
-  const tot = k => all.reduce((a, x) => a + x[k], 0);
-  const ped = d.collisions.filter(x => x.ped).length, cyc = d.collisions.filter(x => x.cyc).length;
-  document.getElementById('cards').innerHTML = [
-    [n(tot('collisions')), `collisions where someone was hurt, ${y0} to ${y1}`],
-    [n(tot('killed')), `people killed`],
-    [n(tot('seriously')), `people seriously injured`],
-    [n(last.collisions), `collisions in ${last.y}, ${last.fatal + last.serious} of them fatal or serious`],
-  ].map(([v, l]) => `<div class="card"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
-  const fy = document.getElementById('fy');
-  all.slice().reverse().forEach(x => fy.insertAdjacentHTML('beforeend', `<option value="${x.y}">${x.y}</option>`));
-  const max = Math.max(...all.map(x => x.collisions));
-  document.getElementById('years').innerHTML = all.map(x => `<span>${x.y}</span><div class="b" title="${x.collisions} collisions, ${x.fatal + x.serious} fatal or serious"><i style="width:${x.collisions / max * 100}%"></i><em style="width:${(x.fatal + x.serious) / max * 100}%"></em></div><span class="n">${x.collisions}</span>`).join('');
-  document.getElementById('roads').innerHTML = d.top_roads.map(r => `<tr><td><b>${esc(r.road)}</b></td><td class="n">${r.collisions}</td><td class="n">${r.ksi}</td><td class="n">${r.killed}</td></tr>`).join('');
-  document.getElementById('spots').innerHTML = d.hotspots.map((s, i) => `<tr class="go" data-i="${i}"><td>${esc(s.place || 'Unnamed spot')}</td><td>${esc(s.roads.join(', ') || 'Minor roads')}</td><td class="n">${s.n}</td><td class="n">${s.ksi}</td></tr>`).join('');
-  document.querySelectorAll('#spots tr').forEach(tr => tr.addEventListener('click', () => {
-    const s = d.hotspots[+tr.dataset.i];
-    map.setView([s.lat, s.lon], 16);
+function yearsChart() {
+  const all = D.by_year, max = Math.max(...all.map(x => x.collisions));
+  document.getElementById('years').innerHTML = all.map(x => `<span class="${x.y === YEAR ? 'on' : ''}">${x.y}</span><div class="b" title="${x.collisions} collisions, ${x.fatal + x.serious} fatal or serious"><i style="width:${x.collisions / max * 100}%"></i><em style="width:${(x.fatal + x.serious) / max * 100}%"></em></div><span class="n ${x.y === YEAR ? 'on' : ''}">${x.collisions}</span>`).join('');
+}
+
+function roads() {
+  const r = {};
+  inYear().forEach(x => { if (x.road === 'Minor road') return; const o = r[x.road] = r[x.road] || {road: x.road, c: 0, k: 0}; o.c++; o.k += ksi(x) ? 1 : 0; });
+  const top = Object.values(r).sort((a, b) => b.c - a.c || b.k - a.k).slice(0, 12);
+  document.getElementById('roads-sub').textContent = `A and B roads, by the road the collision was recorded on, ${period()}`;
+  document.getElementById('roads').innerHTML = top.map(o => `<tr><td><b>${esc(o.road)}</b></td><td class="n">${o.c}</td><td class="n">${o.k}</td></tr>`).join('') || '<tr><td colspan="3">None</td></tr>';
+}
+
+// Clusters: collisions within about 250 m of each other (same method as the build script)
+function metres(a, b) { return Math.hypot((a.lat - b.lat) * 111000, (a.lon - b.lon) * 111000 * Math.cos(53.2 * Math.PI / 180)); }
+function clusters(xs, min) {
+  const pts = xs.slice().sort((a, b) => a.lat - b.lat || a.lon - b.lon), used = new Set(), out = [];
+  pts.forEach((a, i) => {
+    if (used.has(i)) return;
+    let g = pts.map((b, j) => j).filter(j => !used.has(j) && metres(a, pts[j]) <= 250);
+    if (g.length < min) return;
+    const c = {lat: g.reduce((s, j) => s + pts[j].lat, 0) / g.length, lon: g.reduce((s, j) => s + pts[j].lon, 0) / g.length};
+    g = pts.map((b, j) => j).filter(j => !used.has(j) && metres(c, pts[j]) <= 250);
+    if (g.length < min) return;
+    g.forEach(j => used.add(j));
+    const rc = {};
+    g.forEach(j => [pts[j].road, pts[j].road2].forEach(r => { if (r && r !== 'Minor road') rc[r] = (rc[r] || 0) + 1; }));
+    out.push({lat: c.lat, lon: c.lon, n: g.length, ksi: g.filter(j => ksi(pts[j])).length, roads: Object.entries(rc).sort((a, b) => b[1] - a[1]).slice(0, 2).map(e => e[0])});
+  });
+  return out.sort((a, b) => b.n - a.n || b.ksi - a.ksi).slice(0, 15);
+}
+function place(s) {
+  const pre = (D.hotspots || []).find(h => metres(h, s) < 150 && h.place);
+  if (pre) return Promise.resolve(pre.place);
+  const k = s.lat.toFixed(3) + ',' + s.lon.toFixed(3);
+  return placeCache[k] = placeCache[k] || fetch(`https://api.postcodes.io/postcodes?lon=${s.lon}&lat=${s.lat}&limit=1&radius=1000`)
+    .then(r => r.json()).then(d => ((d.result || [])[0] || {})).then(r => (r.parish || r.admin_ward || '').replace(' (Flintshire)', '')).catch(() => '');
+}
+function spots() {
+  const min = YEAR ? 3 : 4, list = clusters(inYear(), min);
+  document.getElementById('spots-sub').textContent = `Places with ${min} or more collisions within about 250 metres, ${period()}. Tap one to see it on the map.`;
+  const tb = document.getElementById('spots');
+  tb.innerHTML = list.map((s, i) => `<tr class="go" data-i="${i}"><td id="pl${i}">…</td><td>${esc(s.roads.join(', ') || 'Minor roads')}</td><td class="n">${s.n}</td><td class="n">${s.ksi}</td></tr>`).join('') || '<tr><td colspan="4">No clusters</td></tr>';
+  list.forEach((s, i) => place(s).then(p => { const c = document.getElementById('pl' + i); if (c) c.textContent = p || 'Unnamed spot'; }));
+  tb.querySelectorAll('tr.go').forEach(tr => tr.addEventListener('click', () => {
+    const s = list[+tr.dataset.i]; map.setView([s.lat, s.lon], 16);
     document.getElementById('map').scrollIntoView({behavior: 'smooth', block: 'center'});
   }));
-  ['fy', 'fs', 'fu'].forEach(id => document.getElementById(id).addEventListener('change', draw));
-  draw();
-  resize();
+}
+
+function render() {
+  document.querySelectorAll('#years-pick button').forEach(b => b.classList.toggle('on', +b.dataset.y === YEAR));
+  cards(); drawMap(); yearsChart(); roads(); spots(); resize();
+}
+
+(window.__e || fetch('collisions.json').then(r => r.json())).then(d => {
+  D = d;
+  document.getElementById('span').textContent = `Collisions where someone was hurt, reported to police, ${d.years[0]} to ${d.years[1]}`;
+  const pick = document.getElementById('years-pick');
+  pick.innerHTML = `<button type="button" data-y="0">All years</button>` + d.by_year.map(x => `<button type="button" data-y="${x.y}">${x.y}</button>`).join('');
+  pick.querySelectorAll('button').forEach(b => b.addEventListener('click', () => { YEAR = +b.dataset.y; render(); }));
+  ['fs', 'fu'].forEach(id => document.getElementById(id).addEventListener('change', () => { drawMap(); resize(); }));
+  render();
 }).catch(() => { document.getElementById('cards').textContent = 'The figures could not be loaded.'; });
 
 function resize() { try { parent.postMessage({deesideWidget: 'collisions', height: Math.ceil(document.body.getBoundingClientRect().height) + 8}, '*'); } catch (e) {} }
