@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The lost names of your street | Deeside in Data</title>
+<meta name="robots" content="noindex">
+<!-- Data: placenames/*.json from ~/deeside-data/build_placenames.py (RCAHMW List of Historic Place Names of Wales via DataMap Wales, OGL). Made to embed in a deeside.com page. -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root { --green: #88c425; --dark-green: #4d7a0c; --ink: #212529; --head: #2d2d2d; --muted: #6c757d; --line: #e9ecef; --tint: #f6f8f3; --tint-line: #e3e9d8; --red: #c0392b; }
+* { box-sizing: border-box; }
+html, body { margin: 0; background: #fff; }
+body { font-family: 'Open Sans', Arial, sans-serif; color: var(--ink); font-size: 15px; line-height: 1.5; }
+a { color: var(--dark-green); }
+h2 { font-size: 18px; font-weight: 800; color: var(--head); margin: 0 0 2px; letter-spacing: -.2px; padding-top: 12px; border-top: 4px solid var(--green); }
+.sub { font-size: 13px; color: var(--muted); margin: 0 0 10px; }
+form { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 6px; }
+input[type=text] { flex: 1 1 160px; min-width: 0; font: inherit; font-size: 17px; padding: 9px 12px; border: 2px solid #cfd6c4; border-radius: 4px; text-transform: uppercase; }
+button { font: inherit; font-size: 16px; font-weight: 700; padding: 9px 20px; border: 0; border-radius: 4px; background: #000001; color: #fff; cursor: pointer; min-height: 44px; }
+#msg { font-size: 14px; margin: 6px 0; }
+#msg.bad { color: var(--red); }
+#map { height: 380px; border: 1px solid var(--line); margin: 8px 0; display: none; }
+.list { margin: 0; padding: 0; list-style: none; }
+.list li { padding: 9px 0; border-bottom: 1px solid var(--line); }
+.list .nm { font-weight: 700; color: var(--head); font-size: 16px; }
+.list .meta { font-size: 13px; color: var(--muted); }
+.tag { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; padding: 1px 6px; margin-right: 6px; background: var(--tint); border: 1px solid var(--tint-line); color: var(--dark-green); }
+.notes { font-size: 12.5px; color: var(--muted); margin-top: 16px; }
+.leaflet-popup-content { font-family: 'Open Sans', Arial, sans-serif; font-size: 13px; }
+</style>
+</head>
+<body>
+<h2>The lost names of your street</h2>
+<p class="sub">Before the houses, most of Flintshire was fields, and every field had a name. Enter a postcode to see the old names recorded within about 500 metres.</p>
+<form id="f"><input type="text" id="pc" placeholder="e.g. CH5 4BH" aria-label="Postcode" autocomplete="postal-code"><button type="submit">Look up</button></form>
+<div id="msg"></div>
+<div id="map"></div>
+<ul class="list" id="list"></ul>
+<p class="notes">Source: <a href="https://historicplacenames.rcahmw.gov.uk/" target="_blank" rel="noopener">List of Historic Place Names of Wales</a>, Royal Commission on the Ancient and Historical Monuments of Wales, via DataMap Wales, Open Government Licence. Most field names come from the tithe maps of the 1840s. Positions are within about 100 metres. Covers the historic county of Flintshire. Built by Deeside.com.</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+const LABEL = {field: 'Field', settlement: 'Place', feature: 'Feature', other: 'Name', area: 'Area', parish: 'Parish'};
+const RADIUS = 500;
+let map, layer, idx;
+const cache = {};
+const tileKey = (lat, lon) => `${Math.floor(lat / idx.tile)}_${Math.floor(lon / idx.tile)}`;
+const getTile = k => cache[k] || (cache[k] = idx.tiles.includes(k) ? fetch(`placenames/${k}.json`).then(r => r.json()) : Promise.resolve([]));
+const metres = (a, b, c, d) => Math.hypot((a - c) * 111320, (b - d) * 111320 * Math.cos(a * Math.PI / 180));
+
+function msg(t, bad) { const m = document.getElementById('msg'); m.textContent = t; m.className = bad ? 'bad' : ''; resize(); }
+
+async function look(pc) {
+  msg('Looking up…');
+  const r = await fetch('https://api.postcodes.io/postcodes/' + encodeURIComponent(pc)).then(r => r.json()).catch(() => null);
+  if (!r || r.status !== 200) return msg("We couldn't find that postcode. Check it and try again.", true);
+  const {latitude: lat, longitude: lon} = r.result;
+  idx = idx || await fetch('placenames/index.json').then(r => r.json());
+  const keys = new Set();
+  for (const dy of [-1, 0, 1]) for (const dx of [-1, 0, 1]) keys.add(tileKey(lat + dy * idx.tile / 2, lon + dx * idx.tile / 2));
+  const rows = (await Promise.all([...keys].map(getTile))).flat()
+    .map(x => ({lat: x[0], lon: x[1], name: x[2], type: x[3], year: x[4], parish: x[5], src: x[6], id: x[7], d: metres(lat, lon, x[0], x[1])}))
+    .filter(x => x.d <= RADIUS).sort((a, b) => a.d - b.d);
+  const seen = new Set(), uniq = rows.filter(x => { const k = x.name.toLowerCase() + '|' + Math.round(x.lat * 1000) + Math.round(x.lon * 1000); if (seen.has(k)) return false; seen.add(k); return true; });
+  const el = document.getElementById('map');
+  el.style.display = 'block';
+  if (!map) {
+    map = L.map('map', {scrollWheelZoom: false});
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'}).addTo(map);
+    layer = L.layerGroup().addTo(map);
+  }
+  map.setView([lat, lon], 16);
+  layer.clearLayers();
+  L.circle([lat, lon], {radius: RADIUS, color: '#4d7a0c', weight: 1, fillOpacity: .04}).addTo(layer);
+  L.circleMarker([lat, lon], {radius: 6, color: '#fff', weight: 2, fillColor: '#000001', fillOpacity: 1}).addTo(layer).bindPopup(esc(r.result.postcode));
+  uniq.forEach(x => L.circleMarker([x.lat, x.lon], {radius: 5, color: '#fff', weight: 1, fillColor: '#88c425', fillOpacity: .95}).addTo(layer)
+    .bindPopup(`<b>${esc(x.name)}</b><br>${esc(LABEL[x.type])}${x.year ? ', recorded ' + esc(x.year) : ''}`));
+  if (!uniq.length) { document.getElementById('list').innerHTML = ''; return msg(`No old names are recorded within ${RADIUS} metres of ${r.result.postcode}.`); }
+  msg(`${uniq.length} old name${uniq.length === 1 ? '' : 's'} recorded within ${RADIUS} metres of ${r.result.postcode}, nearest first.`);
+  document.getElementById('list').innerHTML = uniq.slice(0, 150).map(x => `<li><div class="nm">${esc(x.name)}</div>
+    <div class="meta"><span class="tag">${esc(LABEL[x.type])}</span>${x.year ? 'Recorded ' + esc(x.year) : ''}${x.src ? ', ' + esc(x.src) : ''}${x.parish ? '. Parish of ' + esc(x.parish) : ''}. About ${Math.round(x.d / 10) * 10} m away.
+    ${x.id ? ` <a href="https://historicplacenames.rcahmw.gov.uk/placenames/recordedname/${encodeURIComponent(x.id)}" target="_blank" rel="noopener">Record</a>` : ''}</div></li>`).join('');
+  resize();
+}
+document.getElementById('f').addEventListener('submit', e => { e.preventDefault(); const v = document.getElementById('pc').value.trim(); if (v) look(v); });
+const q = new URLSearchParams(location.search).get('postcode');
+if (q) { document.getElementById('pc').value = q; look(q); }
+function resize() { try { parent.postMessage({deesideWidget: 'placenames', height: Math.ceil(document.body.getBoundingClientRect().height) + 8}, '*'); } catch (e) {} }
+if (window.ResizeObserver) new ResizeObserver(resize).observe(document.body);
+addEventListener('load', resize);
+</script>
+</body>
+</html>
