@@ -105,7 +105,8 @@ for sp in spots[:15]:
     except Exception:
         sp["place"] = ""
 
-out = {"source": "Department for Transport road casualty statistics (STATS19), OGL v3",
+import datetime as _dt
+out = {"updated": _dt.datetime.now(_dt.timezone.utc).isoformat(timespec="seconds"), "source": "Department for Transport road casualty statistics (STATS19), OGL v3",
        "area": "Flintshire", "years": [years[0], years[-1]], "by_year": by_year,
        "top_roads": top_roads, "hotspots": spots[:15], "collisions": items}
 OUT.write_text(json.dumps(out, separators=(",", ":")))

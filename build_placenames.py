@@ -44,5 +44,5 @@ for old in OUT.glob("*.json"):
     old.unlink()
 for k, rows in tiles.items():
     (OUT / f"{k}.json").write_text(json.dumps(rows, ensure_ascii=False, separators=(",", ":")))
-(OUT / "index.json").write_text(json.dumps({"tile": TILE, "count": sum(map(len, tiles.values())), "tiles": sorted(tiles)}))
+(OUT / "index.json").write_text(json.dumps({"updated": __import__("datetime").datetime.now(__import__("datetime").timezone.utc).isoformat(timespec="seconds"), "tile": TILE, "count": sum(map(len, tiles.values())), "tiles": sorted(tiles)}))
 print(len(feats), "names,", len(tiles), "tiles")
