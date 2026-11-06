@@ -91,7 +91,7 @@ const ksi = x => x.s !== 'slight';
 const map = L.map('map', {scrollWheelZoom: false}).setView([53.2, -3.12], 11);
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 18, attribution: '&copy; OpenStreetMap contributors'}).addTo(map);
 const layer = L.layerGroup().addTo(map);
-let D, YEAR = 0;
+let D, YEAR = 0, ROAD = '';
 const placeCache = {};
 
 function fmtDate(iso) { return new Date(iso + 'T12:00:00Z').toLocaleDateString('en-GB', {day: 'numeric', month: 'short', year: 'numeric'}); }
@@ -123,10 +123,11 @@ function drawMap() {
   const s = document.getElementById('fs').value, u = document.getElementById('fu').value;
   layer.clearLayers();
   const order = {slight: 0, serious: 1, fatal: 2};
-  const xs = inYear().filter(x => (!s || (s === 'ksi' ? ksi(x) : x.s === s)) && (!u || x[u] > 0)).sort((a, b) => order[a.s] - order[b.s]);
+  const xs = inYear().filter(x => (!s || (s === 'ksi' ? ksi(x) : x.s === s)) && (!u || x[u] > 0) && (!ROAD || x.road === ROAD || x.road2 === ROAD)).sort((a, b) => order[a.s] - order[b.s]);
   xs.forEach(x => L.circleMarker([x.lat, x.lon], {radius: x.s === 'slight' ? 4 : 6, color: '#fff', weight: 1, fillColor: COL[x.s], fillOpacity: .9})
     .bindPopup(`<b>${x.s[0].toUpperCase() + x.s.slice(1)} collision</b><br>${fmtDate(x.d)}, ${esc(x.t)}<br>${esc(x.road)}${x.road2 && x.road2 !== x.road ? ' / ' + esc(x.road2) : ''}${x.limit ? `, ${esc(x.limit)}mph limit` : ''}<br>${x.veh} vehicle${x.veh === 1 ? '' : 's'}; ${hurt(x)}`).addTo(layer));
-  document.getElementById('shown').textContent = `${n(xs.length)} shown`;
+  document.getElementById('shown').innerHTML = `${n(xs.length)} shown` + (ROAD ? ` on the ${esc(ROAD)} <a href="#" id="clr">show all roads</a>` : '');
+  const clr = document.getElementById('clr'); if (clr) clr.onclick = e => { e.preventDefault(); ROAD = ''; drawMap(); };
 }
 
 function yearsChart() {
@@ -191,7 +192,20 @@ function render() {
   pick.innerHTML = `<button type="button" data-y="0">All years</button>` + d.by_year.map(x => `<button type="button" data-y="${x.y}">${x.y}</button>`).join('');
   pick.querySelectorAll('button').forEach(b => b.addEventListener('click', () => { YEAR = +b.dataset.y; render(); }));
   ['fs', 'fu'].forEach(id => document.getElementById(id).addEventListener('change', () => { drawMap(); resize(); }));
+  const q = new URLSearchParams(location.search);
+  if (q.get('year') && d.by_year.some(x => x.y === +q.get('year'))) YEAR = +q.get('year');
+  ROAD = (q.get('road') || '').toUpperCase().replace(/\s+/g, '');
   render();
+  const TOWNS = {'mold': [53.1665, -3.1418], 'flint': [53.2445, -3.1338], 'shotton': [53.2125, -3.0375], "connah's quay": [53.2185, -3.0755],
+    'connahs quay': [53.2185, -3.0755], 'buckley': [53.1720, -3.0830], 'hawarden': [53.1845, -3.0255], 'ewloe': [53.1950, -3.0650],
+    'queensferry': [53.2070, -3.0180], 'broughton': [53.1640, -2.9850], 'holywell': [53.2740, -3.2230], 'saltney': [53.1700, -2.9330],
+    'sealand': [53.2160, -2.9820], 'mostyn': [53.3150, -3.2700], 'caerwys': [53.2450, -3.3100], 'northop': [53.2070, -3.1300]};
+  const near = (q.get('near') || '').toLowerCase().trim();
+  if (TOWNS[near]) map.setView(TOWNS[near], 14);
+  if (ROAD) {
+    const pts = inYear().filter(x => x.road === ROAD || x.road2 === ROAD).map(x => [x.lat, x.lon]);
+    if (pts.length) map.fitBounds(pts, {padding: [20, 20]});
+  }
 }).catch(() => { document.getElementById('cards').textContent = 'The figures could not be loaded.'; });
 
 function resize() { try { parent.postMessage({deesideWidget: 'collisions', height: Math.ceil(document.body.getBoundingClientRect().height) + 8}, '*'); } catch (e) {} }
