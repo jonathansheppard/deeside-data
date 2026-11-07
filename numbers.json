@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T07:15:00+00:00",
+ "updated": "2026-11-07T13:15:05+00:00",
  "numbers": [
   {
    "key": "council_tax",
@@ -14,8 +14,8 @@
    "key": "planning",
    "label": "Planning applications approved",
    "value": "91%",
-   "context": "182 approved and 19 refused in the last 90 days, from 359 applications",
-   "date": "6 November 2026",
+   "context": "182 approved and 19 refused in the last 90 days, from 361 applications",
+   "date": "7 November 2026",
    "source": "Flintshire County Council planning register",
    "link": "https://planning.deeside.com/"
   },
@@ -49,9 +49,9 @@
   {
    "key": "trains",
    "label": "Borderlands trains on time",
-   "value": "73%",
+   "value": "72%",
    "context": "Wrexham to Bidston trains within 3 minutes of time over the last 7 days; 0 of 267 cancelled",
-   "date": "5 November 2026",
+   "date": "6 November 2026",
    "source": "National Rail performance data",
    "link": "https://www.deeside.com/wrexham-bidston-line/"
   },
