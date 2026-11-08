@@ -15,6 +15,7 @@ OUT = Path(__file__).with_name("galleries")
 API = "https://api.geograph.org.uk/api-facetql.php"
 UA = {"User-Agent": "Deeside.com town guides (contact jon@deeside.com)"}
 PER_GUIDE, PER_SQUARE = 9, 2
+KEYLEN = 25  # heritage guides use the whole title
 GUIDES = {  # slug: (search words, accepted Geograph place names start with...)
     "mold": (["Mold"], ["Mold"]),
     "flint": (["Flint"], ["Flint/", "Flint"]),
@@ -91,7 +92,7 @@ def build(slug):
     ranked = [r for sc, r in sorted([x for x in scored if x[0] is not None], key=lambda x: (x[0], int(x[1]["id"])), reverse=True)]
     picked, per_sq, seen = [], collections.Counter(), set()
     for r in ranked:
-        key = (r.get("title") or "").lower().split(",")[0][:25]
+        key = (r.get("title") or "").lower().split(",")[0][:KEYLEN] if KEYLEN < 100 else (r.get("title") or "").lower()
         if per_sq[r["grid_reference"]] >= PER_SQUARE or key in seen:
             continue
         per_sq[r["grid_reference"]] += 1
