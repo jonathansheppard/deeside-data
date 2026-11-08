@@ -8,7 +8,7 @@ Activity comes from the Senedd's Record of Proceedings (Plenary transcripts, XML
 trying meeting IDs above the highest one already known. Rebuilt weekly (Mondays 07:07).
 Member details are kept by hand below (same list as the Senedd category page); check after any change.
 """
-import json, re, sys, time, urllib.request
+import html, json, re, sys, time, urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
@@ -87,6 +87,7 @@ def main():
                 continue
             title = r.findtext("Member_job_title_English") or ""
             text = re.sub(r"<[^>]+>", " ", r.findtext("Contribution_English") or r.findtext("contribution_translated") or "")
+            text = re.sub(r"\s+", " ", html.unescape(html.unescape(text)).replace(" ", " ")).strip()  # 8 Nov 2026: &nbsp; was showing in the widget
             s = stats.setdefault(pid, {"name": name, "n": 0, "words": 0, "sittings": set(), "chair": 0, "last": []})
             s.setdefault("names", set()).add(name)   # the record occasionally misspells a name, so keep every spelling
             s["n"] += 1
