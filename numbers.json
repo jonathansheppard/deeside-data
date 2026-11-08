@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T07:15:01+00:00",
+ "updated": "2026-11-08T13:15:01+00:00",
  "numbers": [
   {
    "key": "council_tax",
@@ -49,9 +49,9 @@
   {
    "key": "trains",
    "label": "Borderlands trains on time",
-   "value": "72%",
-   "context": "Wrexham to Bidston trains within 3 minutes of time over the last 7 days; 0 of 267 cancelled",
-   "date": "6 November 2026",
+   "value": "69%",
+   "context": "Wrexham to Bidston trains within 3 minutes of time over the last 7 days; 0 of 256 cancelled",
+   "date": "7 November 2026",
    "source": "National Rail performance data",
    "link": "https://www.deeside.com/wrexham-bidston-line/"
   },
