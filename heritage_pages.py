@@ -43,6 +43,10 @@ SITES = {
        ("What are the opening times?", "10am to 4pm every day, with last entry at 3.30pm. It is closed from 24 to 26 December and on 1 January."),
        ("Can I take my dog?", "Yes, on a short lead, on the ground-floor levels."),
        ("What is near Flint Castle?", f'The Flint town centre and the Dee estuary coast path. Ewloe Castle is about four and a half miles away. See our <a href="{D}flint-guide/">Flint guide</a>.')],
+  news=[("In 2017 the Welsh Government proposed a large steel sculpture called the Iron Ring for the castle. Critics said it celebrated Edward I's conquest of Wales, a petition against it gathered thousands of signatures, and the plan was dropped in September 2017. Read our coverage:",
+         [(D + "plans-giant-iron-ring-sculpture-costing-nearly-400000-flint-castle-unveiled-today/", "Plans for the Iron Ring sculpture unveiled (21 July 2017)"),
+          (D + "petition-launched-as-locals-slam-extremely-disrespectful-395k-iron-ring-plan-for-flint-castle/", "Petition launched against the plan (24 July 2017)"),
+          (D + "welsh-government-scrap-divisive-flint-castle-iron-ring-plan/", "Welsh Government scraps the plan (7 September 2017)")])],
   sources=[(CADW + "flint-castle", "Cadw: Flint Castle"), ("https://coflein.gov.uk/en/site/94448", "Coflein: Flint Castle")],
   gallery="flint-castle"),
 
@@ -289,6 +293,10 @@ def content(k, s):
         out.append(f"<h2>{h}</h2>")
         out += [f"<p>{p}</p>" for p in paras]
         out.append("")
+    for intro, links in s.get("news", []):
+        out.append("<h2>In the news</h2>")
+        out.append(f"<p>{intro}</p>")
+        out.append("<ul>" + "".join(f'<li><a href="{u}">{t}</a></li>' for u, t in links) + "</ul>" + chr(10))
     out.append("<h2>Listed buildings and more</h2>")
     out.append(f'<p>See every Cadw listed building in Flintshire on our <a href="{D}listed-buildings/">listed buildings pages</a>, and more places to visit in our <a href="{D}{HUB}/">guide to castles and heritage in Flintshire</a>.</p>\n')
     out.append(gallery(s["gallery"], s["name"]) + "\n")
