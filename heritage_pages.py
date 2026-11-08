@@ -43,7 +43,7 @@ SITES = {
        ("What are the opening times?", "10am to 4pm every day, with last entry at 3.30pm. It is closed from 24 to 26 December and on 1 January."),
        ("Can I take my dog?", "Yes, on a short lead, on the ground-floor levels."),
        ("What is near Flint Castle?", f'The Flint town centre and the Dee estuary coast path. Ewloe Castle is about four and a half miles away. See our <a href="{D}flint-guide/">Flint guide</a>.')],
-  news=[("In 2017 the Welsh Government proposed a large steel sculpture called the Iron Ring for the castle. Critics said it celebrated Edward I's conquest of Wales, a petition against it gathered thousands of signatures, and the plan was dropped in September 2017. Read our coverage:",
+  news=[("In July 2017 the Welsh Government unveiled plans for a £395,000 sculpture called the Iron Ring at the castle. Critics said it celebrated Edward I's conquest of Wales, a petition against it passed 1,200 signatures in its first 24 hours, and the Welsh Government dropped the plan in September 2017, calling it divisive. Read our coverage:",
          [(D + "plans-giant-iron-ring-sculpture-costing-nearly-400000-flint-castle-unveiled-today/", "Plans for the Iron Ring sculpture unveiled (21 July 2017)"),
           (D + "petition-launched-as-locals-slam-extremely-disrespectful-395k-iron-ring-plan-for-flint-castle/", "Petition launched against the plan (24 July 2017)"),
           (D + "welsh-government-scrap-divisive-flint-castle-iron-ring-plan/", "Welsh Government scraps the plan (7 September 2017)")])],
