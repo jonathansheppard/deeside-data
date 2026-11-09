@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-02T07:06:07+00:00",
+ "updated": "2026-11-09T07:06:06+00:00",
  "source": "UK Parliament Members API and Commons Votes API",
  "seats": {
   "W07000082": {
@@ -23,45 +23,45 @@
    "website": "",
    "profile": "https://members.parliament.uk/member/1383/contact",
    "votes": {
-    "voted": 573,
-    "of": 620,
+    "voted": 584,
+    "of": 631,
     "since": "2024-07-17"
    },
    "recent": [
     {
-     "title": "Draft Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment and Transitional Provision) Regulations 2026",
-     "date": "2026-10-27",
+     "title": "Railways Bill: Carry-over extension (Motion)",
+     "date": "2026-11-04",
      "vote": "Aye",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2463"
+     "url": "https://votes.parliament.uk/votes/commons/division/2476"
     },
     {
-     "title": "Opposition day motion: Support for British farmers",
-     "date": "2026-10-21",
+     "title": "Sporting Events Bill [Lords] Report: Amendment 8",
+     "date": "2026-11-04",
      "vote": "No",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2462"
+     "url": "https://votes.parliament.uk/votes/commons/division/2475"
     },
     {
-     "title": "Withdrawal Agreement (Windsor Framework and Governance) (Amendment)  Regulations 2026",
-     "date": "2026-10-21",
-     "vote": "Aye",
+     "title": "Sporting Events Bill [Lords] Report: Amendment 6",
+     "date": "2026-11-04",
+     "vote": "No",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2461"
+     "url": "https://votes.parliament.uk/votes/commons/division/2474"
     },
     {
-     "title": "Draft Code of Practice on Access and Unfair Practices During the Recognition and  Derecognition Process",
-     "date": "2026-10-21",
-     "vote": "Aye",
+     "title": "Sporting Events Bill [Lords] Report: New Clause 1",
+     "date": "2026-11-04",
+     "vote": "No",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2460"
+     "url": "https://votes.parliament.uk/votes/commons/division/2473"
     },
     {
-     "title": "Draft Railways (Interoperability in Northern Ireland) (Convention on International  Carriage by Rail) (Amendment) Regulations 2026",
-     "date": "2026-10-21",
+     "title": "Budget Resolution No. 86: High value council tax surcharge",
+     "date": "2026-11-03",
      "vote": "Aye",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2459"
+     "url": "https://votes.parliament.uk/votes/commons/division/2470"
     }
    ]
   },
@@ -80,45 +80,45 @@
    "website": "",
    "profile": "https://members.parliament.uk/member/5181/contact",
    "votes": {
-    "voted": 530,
-    "of": 620,
+    "voted": 541,
+    "of": 631,
     "since": "2024-07-17"
    },
    "recent": [
     {
-     "title": "Draft Town and Country Planning (Fees for Applications, Deemed Applications, Requests and Site Visits) (England) (Amendment and Transitional Provision) Regulations 2026",
-     "date": "2026-10-27",
+     "title": "Railways Bill: Carry-over extension (Motion)",
+     "date": "2026-11-04",
      "vote": "Aye",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2463"
+     "url": "https://votes.parliament.uk/votes/commons/division/2476"
     },
     {
-     "title": "Opposition day motion: Support for British farmers",
-     "date": "2026-10-21",
+     "title": "Sporting Events Bill [Lords] Report: Amendment 8",
+     "date": "2026-11-04",
      "vote": "No",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2462"
+     "url": "https://votes.parliament.uk/votes/commons/division/2475"
     },
     {
-     "title": "Withdrawal Agreement (Windsor Framework and Governance) (Amendment)  Regulations 2026",
-     "date": "2026-10-21",
-     "vote": "Aye",
+     "title": "Sporting Events Bill [Lords] Report: Amendment 6",
+     "date": "2026-11-04",
+     "vote": "No",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2461"
+     "url": "https://votes.parliament.uk/votes/commons/division/2474"
     },
     {
-     "title": "Draft Code of Practice on Access and Unfair Practices During the Recognition and  Derecognition Process",
-     "date": "2026-10-21",
-     "vote": "Aye",
+     "title": "Sporting Events Bill [Lords] Report: New Clause 1",
+     "date": "2026-11-04",
+     "vote": "No",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2460"
+     "url": "https://votes.parliament.uk/votes/commons/division/2473"
     },
     {
-     "title": "Draft Railways (Interoperability in Northern Ireland) (Convention on International  Carriage by Rail) (Amendment) Regulations 2026",
-     "date": "2026-10-21",
+     "title": "Budget Resolution No. 86: High value council tax surcharge",
+     "date": "2026-11-03",
      "vote": "Aye",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2459"
+     "url": "https://votes.parliament.uk/votes/commons/division/2470"
     }
    ]
   }
