@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T13:15:01+00:00",
+ "updated": "2026-11-10T19:15:00+00:00",
  "numbers": [
   {
    "key": "council_tax",
@@ -22,8 +22,8 @@
   {
    "key": "hygiene",
    "label": "Food outlets rated 5",
-   "value": "87%",
-   "context": "1,074 of 1,229 rated places in Flintshire; 21 are rated 2 or below",
+   "value": "88%",
+   "context": "1,080 of 1,232 rated places in Flintshire; 19 are rated 2 or below",
    "date": "10 November 2026",
    "source": "Food Standards Agency",
    "link": "https://hygiene.deeside.com/"
@@ -31,8 +31,8 @@
   {
    "key": "fuel",
    "label": "Cheapest unleaded in Flintshire",
-   "value": "161.5p",
-   "context": "At Rhydymwyn Service Station. UK average 168.7p",
+   "value": "159.5p",
+   "context": "At Rhydymwyn Service Station. UK average 168.4p",
    "date": "10 November 2026",
    "source": "GOV.UK Fuel Finder scheme",
    "link": "https://www.deeside.com/fuel-price-map/"
