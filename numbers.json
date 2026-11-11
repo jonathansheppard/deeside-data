@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-10T19:15:00+00:00",
+ "updated": "2026-11-11T07:15:00+00:00",
  "numbers": [
   {
    "key": "council_tax",
@@ -14,8 +14,8 @@
    "key": "planning",
    "label": "Planning applications approved",
    "value": "91%",
-   "context": "174 approved and 18 refused in the last 90 days, from 351 applications",
-   "date": "10 November 2026",
+   "context": "174 approved and 18 refused in the last 90 days, from 352 applications",
+   "date": "11 November 2026",
    "source": "Flintshire County Council planning register",
    "link": "https://planning.deeside.com/"
   },
@@ -24,7 +24,7 @@
    "label": "Food outlets rated 5",
    "value": "88%",
    "context": "1,080 of 1,232 rated places in Flintshire; 19 are rated 2 or below",
-   "date": "10 November 2026",
+   "date": "11 November 2026",
    "source": "Food Standards Agency",
    "link": "https://hygiene.deeside.com/"
   },
@@ -32,8 +32,8 @@
    "key": "fuel",
    "label": "Cheapest unleaded in Flintshire",
    "value": "159.5p",
-   "context": "At Rhydymwyn Service Station. UK average 168.4p",
-   "date": "10 November 2026",
+   "context": "At Rhydymwyn Service Station. UK average 168.3p",
+   "date": "11 November 2026",
    "source": "GOV.UK Fuel Finder scheme",
    "link": "https://www.deeside.com/fuel-price-map/"
   },
