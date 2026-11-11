@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-09T07:08:46+00:00",
+ "updated": "2026-11-11T07:08:42+00:00",
  "source": "Senedd Record of Proceedings (Plenary), Seventh Senedd",
- "sittings": 29,
+ "sittings": 30,
  "first": "2026-05-12",
- "last": "2026-11-04",
+ "last": "2026-11-10",
  "ranked_of": 95,
  "westminster_to_senedd": {
   "W07000082": "Fflint Wrecsam",
@@ -50,11 +50,16 @@
     "email": "Nigel.Williams-AS@senedd.cymru",
     "phone": "0300 200 6364",
     "activity": {
-     "contributions": 31,
-     "words": 6078,
-     "sittings": 19,
-     "rank": 64,
+     "contributions": 34,
+     "words": 6209,
+     "sittings": 20,
+     "rank": 58,
      "latest": [
+      {
+       "date": "2026-11-10",
+       "item": "Questions to the Cabinet Minister for Government Effectiveness and the Constitution",
+       "url": "https://record.senedd.wales/Plenary/16422#C785196"
+      },
       {
        "date": "2026-11-03",
        "item": "Questions to the First Minister",
@@ -64,11 +69,6 @@
        "date": "2026-10-20",
        "item": "Statement by the Deputy Minister for Social Care, Mental Health and Women’s Health: Update on the National Care Service Programme",
        "url": "https://record.senedd.wales/Plenary/16317#C780058"
-      },
-      {
-       "date": "2026-10-20",
-       "item": "Business Statement and Announcement",
-       "url": "https://record.senedd.wales/Plenary/16317#C779925"
       }
      ]
     }
@@ -84,7 +84,7 @@
      "contributions": 32,
      "words": 5064,
      "sittings": 17,
-     "rank": 59,
+     "rank": 62,
      "latest": [
       {
        "date": "2026-10-21",
@@ -115,7 +115,7 @@
      "contributions": 30,
      "words": 2857,
      "sittings": 14,
-     "rank": 66,
+     "rank": 67,
      "latest": [
       {
        "date": "2026-11-04",
@@ -143,15 +143,15 @@
     "email": "Sam.Rowlands-MS@senedd.wales",
     "phone": "0300 200 7267",
     "activity": {
-     "contributions": 65,
-     "words": 21341,
-     "sittings": 24,
+     "contributions": 67,
+     "words": 21563,
+     "sittings": 25,
      "rank": 24,
      "latest": [
       {
-       "date": "2026-11-03",
+       "date": "2026-11-10",
        "item": "Questions to the First Minister",
-       "url": "https://record.senedd.wales/Plenary/16420#C782309"
+       "url": "https://record.senedd.wales/Plenary/16422#C785065"
       },
       {
        "date": "2026-10-21",
@@ -174,15 +174,15 @@
     "email": "Ken.Skates-MS@senedd.wales",
     "phone": "01978 869 058",
     "activity": {
-     "contributions": 81,
-     "words": 15815,
-     "sittings": 25,
+     "contributions": 84,
+     "words": 16262,
+     "sittings": 26,
      "rank": 19,
      "latest": [
       {
-       "date": "2026-11-03",
+       "date": "2026-11-10",
        "item": "Questions to the First Minister",
-       "url": "https://record.senedd.wales/Plenary/16420#C782277"
+       "url": "https://record.senedd.wales/Plenary/16422#C785067"
       },
       {
        "date": "2026-10-21",
@@ -207,11 +207,16 @@
     "email": "",
     "phone": "",
     "activity": {
-     "contributions": 37,
-     "words": 6066,
-     "sittings": 15,
-     "rank": 51,
+     "contributions": 40,
+     "words": 6483,
+     "sittings": 16,
+     "rank": 49,
      "latest": [
+      {
+       "date": "2026-11-10",
+       "item": "Questions to the Cabinet Minister for Government Effectiveness and the Constitution",
+       "url": "https://record.senedd.wales/Plenary/16422#C785168"
+      },
       {
        "date": "2026-10-21",
        "item": "Reform UK Debate: Prostate cancer strategy",
@@ -221,11 +226,6 @@
        "date": "2026-10-20",
        "item": "Questions to the Counsel General",
        "url": "https://record.senedd.wales/Plenary/16317#C779860"
-      },
-      {
-       "date": "2026-10-20",
-       "item": "Questions to the First Minister",
-       "url": "https://record.senedd.wales/Plenary/16317#C779734"
       }
      ]
     }
@@ -238,11 +238,16 @@
     "email": "",
     "phone": "",
     "activity": {
-     "contributions": 43,
-     "words": 8027,
-     "sittings": 17,
-     "rank": 46,
+     "contributions": 45,
+     "words": 8231,
+     "sittings": 18,
+     "rank": 41,
      "latest": [
+      {
+       "date": "2026-11-10",
+       "item": "Questions to the Cabinet Minister for Government Effectiveness and the Constitution",
+       "url": "https://record.senedd.wales/Plenary/16422#C785208"
+      },
       {
        "date": "2026-11-04",
        "item": "Questions to the Cabinet Minister for Rural Resilience and Sustainability",
@@ -252,11 +257,6 @@
        "date": "2026-11-03",
        "item": "Questions to the First Minister",
        "url": "https://record.senedd.wales/Plenary/16420#C782237"
-      },
-      {
-       "date": "2026-10-20",
-       "item": "Statement by the Cabinet Minister for Enterprise, Connectivity and Energy: Update on the National Energy Strategy",
-       "url": "https://record.senedd.wales/Plenary/16317#C780203"
       }
      ]
     }
@@ -269,11 +269,16 @@
     "email": "",
     "phone": "",
     "activity": {
-     "contributions": 39,
-     "words": 8771,
-     "sittings": 18,
-     "rank": 49,
+     "contributions": 41,
+     "words": 8923,
+     "sittings": 19,
+     "rank": 48,
      "latest": [
+      {
+       "date": "2026-11-10",
+       "item": "Questions to the First Minister",
+       "url": "https://record.senedd.wales/Plenary/16422#C785121"
+      },
       {
        "date": "2026-11-04",
        "item": "Questions to the Cabinet Minister for Rural Resilience and Sustainability",
@@ -283,11 +288,6 @@
        "date": "2026-10-21",
        "item": "Questions to the Cabinet Minister for Education and the Welsh Language",
        "url": "https://record.senedd.wales/Plenary/16318#C780521"
-      },
-      {
-       "date": "2026-10-20",
-       "item": "Statement by the Cabinet Minister for Finance: An Update on Council Tax",
-       "url": "https://record.senedd.wales/Plenary/16317#C780081"
       }
      ]
     }
@@ -331,20 +331,20 @@
     "email": "",
     "phone": "0300 200 7558",
     "activity": {
-     "contributions": 25,
-     "words": 2886,
-     "sittings": 14,
-     "rank": 79,
+     "contributions": 27,
+     "words": 2978,
+     "sittings": 15,
+     "rank": 75,
      "latest": [
+      {
+       "date": "2026-11-10",
+       "item": "Questions to the First Minister",
+       "url": "https://record.senedd.wales/Plenary/16422#C785117"
+      },
       {
        "date": "2026-10-21",
        "item": "Questions to the Cabinet Minister for Enterprise, Connectivity and Energy",
        "url": "https://record.senedd.wales/Plenary/16318#C780505"
-      },
-      {
-       "date": "2026-10-20",
-       "item": "Questions to the First Minister",
-       "url": "https://record.senedd.wales/Plenary/16317#C779811"
       },
       {
        "date": "2026-10-14",
@@ -362,20 +362,20 @@
     "email": "Darren.Millar-MS@senedd.wales",
     "phone": "0300 200 6206",
     "activity": {
-     "contributions": 95,
-     "words": 26978,
-     "sittings": 26,
+     "contributions": 97,
+     "words": 27257,
+     "sittings": 27,
      "rank": 15,
      "latest": [
+      {
+       "date": "2026-11-10",
+       "item": "Questions to the First Minister",
+       "url": "https://record.senedd.wales/Plenary/16422#C785058"
+      },
       {
        "date": "2026-11-04",
        "item": "Questions to the Deputy First Minister and Cabinet Minister for Social Justice and Equality",
        "url": "https://record.senedd.wales/Plenary/16421#C782707"
-      },
-      {
-       "date": "2026-11-03",
-       "item": "Questions to the First Minister",
-       "url": "https://record.senedd.wales/Plenary/16420#C782311"
       },
       {
        "date": "2026-10-21",
@@ -388,6 +388,86 @@
   ]
  },
  "feed": [
+  {
+   "date": "2026-11-10",
+   "name": "Louise Emery",
+   "seat": "Clwyd",
+   "party": "Reform UK",
+   "colour": "#12B6CF",
+   "item": "Questions to the Cabinet Minister for Government Effectiveness and the Constitution",
+   "snippet": "I wasn't expecting that answer. I was hoping you were going to tell us that you were going to scrap them, because Audit Wales in 2019 said that PSBs were unlikely to realise their potential unless they were given more…",
+   "url": "https://record.senedd.wales/Plenary/16422#C785208"
+  },
+  {
+   "date": "2026-11-10",
+   "name": "Nigel Williams",
+   "seat": "Fflint Wrecsam",
+   "party": "Reform UK",
+   "colour": "#12B6CF",
+   "item": "Questions to the Cabinet Minister for Government Effectiveness and the Constitution",
+   "snippet": "I'll ask the question now. I've said what I need to say. Thank you very much. Cabinet Minister, devolving employment support funding is only meaningful if it delivers practical help in our communities. Following the agreement with the UK Government,…",
+   "url": "https://record.senedd.wales/Plenary/16422#C785175"
+  },
+  {
+   "date": "2026-11-10",
+   "name": "Adrian Mason",
+   "seat": "Clwyd",
+   "party": "Reform UK",
+   "colour": "#12B6CF",
+   "item": "Questions to the Cabinet Minister for Government Effectiveness and the Constitution",
+   "snippet": "Thank you. I want to talk generally now about devolution, if we may. As a general issue, Cabinet Minister, your Government continues to pursue the transfer of further powers from Westminster to Cardiff. And I know you're going to make…",
+   "url": "https://record.senedd.wales/Plenary/16422#C785168"
+  },
+  {
+   "date": "2026-11-10",
+   "name": "Tom Montgomery",
+   "seat": "Clwyd",
+   "party": "Reform UK",
+   "colour": "#12B6CF",
+   "item": "Questions to the First Minister",
+   "snippet": "Diolch. In the cross-party group on further education and skills we heard college leaders speaking openly about the crisis in the sector, with some saying that they had waiting lists of more than 700. The five colleges alone who attended…",
+   "url": "https://record.senedd.wales/Plenary/16422#C785121"
+  },
+  {
+   "date": "2026-11-10",
+   "name": "Becca Martin",
+   "seat": "Clwyd",
+   "party": "Plaid Cymru",
+   "colour": "#005B54",
+   "item": "Questions to the First Minister",
+   "snippet": "Diolch. Play is not simply a leisure activity, it's one of the most important ways that young children can learn and develop. It's crucial for effective learning, stimulating cognitive development, unlocking opportunities and removing barriers. Given the vital role that…",
+   "url": "https://record.senedd.wales/Plenary/16422#C785117"
+  },
+  {
+   "date": "2026-11-10",
+   "name": "Ken Skates",
+   "seat": "Fflint Wrecsam",
+   "party": "Welsh Labour",
+   "colour": "#E4003B",
+   "item": "Questions to the First Minister",
+   "snippet": "Can I thank the First Minister for his answer? It's my understanding, and I may be incorrect, that the work that's been completed has been completed on the three recommendations that were accepted by the previous Welsh Labour Government and…",
+   "url": "https://record.senedd.wales/Plenary/16422#C785067"
+  },
+  {
+   "date": "2026-11-10",
+   "name": "Sam Rowlands",
+   "seat": "Fflint Wrecsam",
+   "party": "Welsh Conservatives",
+   "colour": "#0087DC",
+   "item": "Questions to the First Minister",
+   "snippet": "Thank you for your response, First Minister. You're absolutely right to say that there's no place for antisemitism anywhere in our society, and that's why it's shocking to see in Sir David Bell's review, released last month, that one in…",
+   "url": "https://record.senedd.wales/Plenary/16422#C785065"
+  },
+  {
+   "date": "2026-11-10",
+   "name": "Darren Millar",
+   "seat": "Clwyd",
+   "party": "Welsh Conservatives",
+   "colour": "#0087DC",
+   "item": "Questions to the First Minister",
+   "snippet": "Diolch yn fawr, Lywydd. First Minister, we remember this week those who served our country in two world wars and all conflicts since and those who fought for our freedoms. And of course, we know that war is raging once…",
+   "url": "https://record.senedd.wales/Plenary/16422#C785058"
+  },
   {
    "date": "2026-11-04",
    "name": "Llyr Gruffydd",
@@ -427,86 +507,6 @@
    "item": "Questions to the Cabinet Minister for Rural Resilience and Sustainability",
    "snippet": "Well, that is great news, because that was my next question, exactly when that's going to be published. So, can I check that will be published in—. You said published in full by the end of November, and available to…",
    "url": "https://record.senedd.wales/Plenary/16421#C782897"
-  },
-  {
-   "date": "2026-11-04",
-   "name": "Marc Jones",
-   "seat": "Fflint Wrecsam",
-   "party": "Plaid Cymru",
-   "colour": "#005B54",
-   "item": "Questions to the Deputy First Minister and Cabinet Minister for Social Justice and Equality",
-   "snippet": "Jane Dodds has already referred to this, so I will ask a slightly different question, based on the situation locally in Wrexham. Nobody should leave prison to face rough sleeping, and that's what happened to six out of 10 prisoners…",
-   "url": "https://record.senedd.wales/Plenary/16421#C782799"
-  },
-  {
-   "date": "2026-11-04",
-   "name": "Cristiana Emsley",
-   "seat": "Fflint Wrecsam",
-   "party": "Reform UK",
-   "colour": "#12B6CF",
-   "item": "Questions to the Deputy First Minister and Cabinet Minister for Social Justice and Equality",
-   "snippet": "Minister, my responsibility is to scrutinise you and, as you refused the question, to enlighten you. There is no such requirement in the Koran. And let me tell you something, that is precisely the distinction you failed to make because…",
-   "url": "https://record.senedd.wales/Plenary/16421#C782780"
-  },
-  {
-   "date": "2026-11-04",
-   "name": "Darren Millar",
-   "seat": "Clwyd",
-   "party": "Welsh Conservatives",
-   "colour": "#0087DC",
-   "item": "Questions to the Deputy First Minister and Cabinet Minister for Social Justice and Equality",
-   "snippet": "Thank you for that answer, Minister. As you will be aware, the bombing of the RFA Sir Galahad was both a military and a Welsh tragedy. Forty-eight people lost their lives in that incident, 32 of which were Welsh Guards,…",
-   "url": "https://record.senedd.wales/Plenary/16421#C782707"
-  },
-  {
-   "date": "2026-11-03",
-   "name": "Darren Millar",
-   "seat": "Clwyd",
-   "party": "Welsh Conservatives",
-   "colour": "#0087DC",
-   "item": "Questions to the First Minister",
-   "snippet": "Diolch, Lywydd. I will say, it's a bit rich of the Labour leader complaining about broken promises when we've still got hundreds of thousands of people on waiting lists and lots of people waiting over two years in spite of…",
-   "url": "https://record.senedd.wales/Plenary/16420#C782311"
-  },
-  {
-   "date": "2026-11-03",
-   "name": "Sam Rowlands",
-   "seat": "Fflint Wrecsam",
-   "party": "Welsh Conservatives",
-   "colour": "#0087DC",
-   "item": "Questions to the First Minister",
-   "snippet": "Thanks for your response there, First Minister, and I was pleased to see you at the National Economic Council in Glasgow as well. I'm sure you entered into those discussions with a genuinely open mind, because it's clear from the…",
-   "url": "https://record.senedd.wales/Plenary/16420#C782309"
-  },
-  {
-   "date": "2026-11-03",
-   "name": "Nigel Williams",
-   "seat": "Fflint Wrecsam",
-   "party": "Reform UK",
-   "colour": "#12B6CF",
-   "item": "Questions to the First Minister",
-   "snippet": "Well, First Minister, you've certainly succeeded in one kind of cross-border co-operation, haven't you? People travelling from Wales to England to buy alcohol for a start—good news for English retailers, but not for Wales businesses. Turning to a matter of…",
-   "url": "https://record.senedd.wales/Plenary/16420#C782287"
-  },
-  {
-   "date": "2026-11-03",
-   "name": "Ken Skates",
-   "seat": "Fflint Wrecsam",
-   "party": "Welsh Labour",
-   "colour": "#E4003B",
-   "item": "Questions to the First Minister",
-   "snippet": "I apologise for laughing. This is no laughing matter, I'm afraid. People do feel let down by broken promises, and perhaps a review or a plan to review or a plan to establish a commission to review the broken promises…",
-   "url": "https://record.senedd.wales/Plenary/16420#C782277"
-  },
-  {
-   "date": "2026-11-03",
-   "name": "Louise Emery",
-   "seat": "Clwyd",
-   "party": "Reform UK",
-   "colour": "#12B6CF",
-   "item": "Questions to the First Minister",
-   "snippet": "So, you've probably guessed, First Minister, that I'm going to talk about the threshold, which has been increased to £18,000 for small retail, hospitality and leisure premises in England. In Wales, if we just remind the Chamber, it's £6,000, with…",
-   "url": "https://record.senedd.wales/Plenary/16420#C782237"
   }
  ]
 }
