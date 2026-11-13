@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-11T07:08:42+00:00",
+ "updated": "2026-11-13T07:08:43+00:00",
  "source": "Senedd Record of Proceedings (Plenary), Seventh Senedd",
- "sittings": 30,
+ "sittings": 31,
  "first": "2026-05-12",
- "last": "2026-11-10",
+ "last": "2026-11-11",
  "ranked_of": 95,
  "westminster_to_senedd": {
   "W07000082": "Fflint Wrecsam",
@@ -22,7 +22,7 @@
      "contributions": 51,
      "words": 9562,
      "sittings": 21,
-     "rank": 36,
+     "rank": 37,
      "latest": [
       {
        "date": "2026-11-04",
@@ -53,7 +53,7 @@
      "contributions": 34,
      "words": 6209,
      "sittings": 20,
-     "rank": 58,
+     "rank": 61,
      "latest": [
       {
        "date": "2026-11-10",
@@ -81,11 +81,16 @@
     "email": "Carrie.Harper-AS@senedd.cymru",
     "phone": "0300 200 7545",
     "activity": {
-     "contributions": 32,
-     "words": 5064,
-     "sittings": 17,
-     "rank": 62,
+     "contributions": 36,
+     "words": 5389,
+     "sittings": 18,
+     "rank": 57,
      "latest": [
+      {
+       "date": "2026-11-11",
+       "item": "Questions to the Cabinet Minister for Health and Care",
+       "url": "https://record.senedd.wales/Plenary/16423#C785684"
+      },
       {
        "date": "2026-10-21",
        "item": "Short Debate: Full-face coverings are against British values",
@@ -95,11 +100,6 @@
        "date": "2026-10-21",
        "item": "Questions to the Cabinet Minister for Enterprise, Connectivity and Energy",
        "url": "https://record.senedd.wales/Plenary/16318#C780550"
-      },
-      {
-       "date": "2026-10-20",
-       "item": "Statement by the Cabinet Minister for Finance: An Update on Council Tax",
-       "url": "https://record.senedd.wales/Plenary/16317#C780127"
       }
      ]
     }
@@ -115,7 +115,7 @@
      "contributions": 30,
      "words": 2857,
      "sittings": 14,
-     "rank": 67,
+     "rank": 68,
      "latest": [
       {
        "date": "2026-11-04",
@@ -143,25 +143,25 @@
     "email": "Sam.Rowlands-MS@senedd.wales",
     "phone": "0300 200 7267",
     "activity": {
-     "contributions": 67,
-     "words": 21563,
-     "sittings": 25,
-     "rank": 24,
+     "contributions": 73,
+     "words": 22122,
+     "sittings": 26,
+     "rank": 20,
      "latest": [
+      {
+       "date": "2026-11-11",
+       "item": "Questions to the Cabinet Minister for Local Government, Housing and Planning",
+       "url": "https://record.senedd.wales/Plenary/16423#C785740"
+      },
+      {
+       "date": "2026-11-11",
+       "item": "Questions to the Cabinet Minister for Health and Care",
+       "url": "https://record.senedd.wales/Plenary/16423#C785710"
+      },
       {
        "date": "2026-11-10",
        "item": "Questions to the First Minister",
        "url": "https://record.senedd.wales/Plenary/16422#C785065"
-      },
-      {
-       "date": "2026-10-21",
-       "item": "Questions to the Cabinet Minister for Enterprise, Connectivity and Energy",
-       "url": "https://record.senedd.wales/Plenary/16318#C780450"
-      },
-      {
-       "date": "2026-10-20",
-       "item": "Statement by the Cabinet Minister for Finance: An Update on Council Tax",
-       "url": "https://record.senedd.wales/Plenary/16317#C780105"
       }
      ]
     }
@@ -174,11 +174,16 @@
     "email": "Ken.Skates-MS@senedd.wales",
     "phone": "01978 869 058",
     "activity": {
-     "contributions": 84,
-     "words": 16262,
-     "sittings": 26,
+     "contributions": 86,
+     "words": 16481,
+     "sittings": 27,
      "rank": 19,
      "latest": [
+      {
+       "date": "2026-11-11",
+       "item": "Questions to the Cabinet Minister for Health and Care",
+       "url": "https://record.senedd.wales/Plenary/16423#C785644"
+      },
       {
        "date": "2026-11-10",
        "item": "Questions to the First Minister",
@@ -188,11 +193,6 @@
        "date": "2026-10-21",
        "item": "Welsh Labour Debate: The M4 around Newport",
        "url": "https://record.senedd.wales/Plenary/16318#C780847"
-      },
-      {
-       "date": "2026-10-21",
-       "item": "Reform UK Debate: Prostate cancer strategy",
-       "url": "https://record.senedd.wales/Plenary/16318#C780784"
       }
      ]
     }
@@ -210,7 +210,7 @@
      "contributions": 40,
      "words": 6483,
      "sittings": 16,
-     "rank": 49,
+     "rank": 50,
      "latest": [
       {
        "date": "2026-11-10",
@@ -241,7 +241,7 @@
      "contributions": 45,
      "words": 8231,
      "sittings": 18,
-     "rank": 41,
+     "rank": 44,
      "latest": [
       {
        "date": "2026-11-10",
@@ -303,7 +303,7 @@
      "contributions": 205,
      "words": 36408,
      "sittings": 13,
-     "rank": 4,
+     "rank": 5,
      "latest": [
       {
        "date": "2026-11-04",
@@ -331,11 +331,16 @@
     "email": "",
     "phone": "0300 200 7558",
     "activity": {
-     "contributions": 27,
-     "words": 2978,
-     "sittings": 15,
-     "rank": 75,
+     "contributions": 29,
+     "words": 3121,
+     "sittings": 16,
+     "rank": 71,
      "latest": [
+      {
+       "date": "2026-11-11",
+       "item": "Questions to the Cabinet Minister for Local Government, Housing and Planning",
+       "url": "https://record.senedd.wales/Plenary/16423#C785799"
+      },
       {
        "date": "2026-11-10",
        "item": "Questions to the First Minister",
@@ -345,11 +350,6 @@
        "date": "2026-10-21",
        "item": "Questions to the Cabinet Minister for Enterprise, Connectivity and Energy",
        "url": "https://record.senedd.wales/Plenary/16318#C780505"
-      },
-      {
-       "date": "2026-10-14",
-       "item": "Welsh Labour Debate: Palliative and end-of-life care",
-       "url": "https://record.senedd.wales/Plenary/16316#C779028"
       }
      ]
     }
@@ -388,6 +388,56 @@
   ]
  },
  "feed": [
+  {
+   "date": "2026-11-11",
+   "name": "Becca Martin",
+   "seat": "Clwyd",
+   "party": "Plaid Cymru",
+   "colour": "#005B54",
+   "item": "Questions to the Cabinet Minister for Local Government, Housing and Planning",
+   "snippet": "5. Will the Cabinet Minister provide an update on the Welsh Government’s plans to end no-fault evictions? OQ64888…",
+   "url": "https://record.senedd.wales/Plenary/16423#C785799"
+  },
+  {
+   "date": "2026-11-11",
+   "name": "Sam Rowlands",
+   "seat": "Fflint Wrecsam",
+   "party": "Welsh Conservatives",
+   "colour": "#0087DC",
+   "item": "Questions to the Cabinet Minister for Local Government, Housing and Planning",
+   "snippet": "if this were a recent development, but this development took place 20 years ago, Cabinet Minister, and they're now refusing to come to the table to discuss how this would be resolved in a timely manner. Secondly, in the same…",
+   "url": "https://record.senedd.wales/Plenary/16423#C785740"
+  },
+  {
+   "date": "2026-11-11",
+   "name": "Sam Rowlands",
+   "seat": "Fflint Wrecsam",
+   "party": "Welsh Conservatives",
+   "colour": "#0087DC",
+   "item": "Questions to the Cabinet Minister for Health and Care",
+   "snippet": "11. What assessment has the Cabinet Minister made of the performance of the accident and emergency service at Wrexham Maelor Hospital? OQ64901…",
+   "url": "https://record.senedd.wales/Plenary/16423#C785707"
+  },
+  {
+   "date": "2026-11-11",
+   "name": "Carrie Harper",
+   "seat": "Fflint Wrecsam",
+   "party": "Plaid Cymru",
+   "colour": "#005B54",
+   "item": "Questions to the Cabinet Minister for Health and Care",
+   "snippet": "Diolch, Lywydd. Every Member has a right to express robust views, but we also have a responsibility to do so within the rules and with respect for the dignity of this Senedd. Now, given that Reform Members have chosen not…",
+   "url": "https://record.senedd.wales/Plenary/16423#C785684"
+  },
+  {
+   "date": "2026-11-11",
+   "name": "Ken Skates",
+   "seat": "Fflint Wrecsam",
+   "party": "Welsh Labour",
+   "colour": "#E4003B",
+   "item": "Questions to the Cabinet Minister for Health and Care",
+   "snippet": "Minister, from what you've outlined, I take it that there has been no impact assessment of the consequences of removing free milk from 80,000 children in schools. That is a very, very disappointing situation to be in. Before any consultation…",
+   "url": "https://record.senedd.wales/Plenary/16423#C785644"
+  },
   {
    "date": "2026-11-10",
    "name": "Louise Emery",
@@ -457,56 +507,6 @@
    "item": "Questions to the First Minister",
    "snippet": "Thank you for your response, First Minister. You're absolutely right to say that there's no place for antisemitism anywhere in our society, and that's why it's shocking to see in Sir David Bell's review, released last month, that one in…",
    "url": "https://record.senedd.wales/Plenary/16422#C785065"
-  },
-  {
-   "date": "2026-11-10",
-   "name": "Darren Millar",
-   "seat": "Clwyd",
-   "party": "Welsh Conservatives",
-   "colour": "#0087DC",
-   "item": "Questions to the First Minister",
-   "snippet": "Diolch yn fawr, Lywydd. First Minister, we remember this week those who served our country in two world wars and all conflicts since and those who fought for our freedoms. And of course, we know that war is raging once…",
-   "url": "https://record.senedd.wales/Plenary/16422#C785058"
-  },
-  {
-   "date": "2026-11-04",
-   "name": "Llyr Gruffydd",
-   "seat": "Clwyd",
-   "party": "Plaid Cymru",
-   "colour": "#005B54",
-   "item": "Topical Questions",
-   "snippet": "I welcome Ofwat's report, and I am concerned by the issues highlighted by the regulators. It's clear that water companies in Wales must deliver sustained improvements for customers and for the environment. This Government will continue to work with regulators…",
-   "url": "https://record.senedd.wales/Plenary/16421#C782940"
-  },
-  {
-   "date": "2026-11-04",
-   "name": "Llyr Gruffydd",
-   "seat": "Clwyd",
-   "party": "Plaid Cymru",
-   "colour": "#005B54",
-   "item": "Questions to the Cabinet Minister for Rural Resilience and Sustainability",
-   "snippet": "Well, I haven't changed my mind on this, you know. I still don't believe that the current regulations are fit for purpose. And, of course,…",
-   "url": "https://record.senedd.wales/Plenary/16421#C782926"
-  },
-  {
-   "date": "2026-11-04",
-   "name": "Tom Montgomery",
-   "seat": "Clwyd",
-   "party": "Reform UK",
-   "colour": "#12B6CF",
-   "item": "Questions to the Cabinet Minister for Rural Resilience and Sustainability",
-   "snippet": "Thank you, Minister. In March five years ago, a Member of this Chamber brought forward a motion calling for this Parliament to annul the Wales-wide nitrate vulnerable zones. As you said in this very Chamber, ‘the regulations are disproportionate’. I…",
-   "url": "https://record.senedd.wales/Plenary/16421#C782922"
-  },
-  {
-   "date": "2026-11-04",
-   "name": "Louise Emery",
-   "seat": "Clwyd",
-   "party": "Reform UK",
-   "colour": "#12B6CF",
-   "item": "Questions to the Cabinet Minister for Rural Resilience and Sustainability",
-   "snippet": "Well, that is great news, because that was my next question, exactly when that's going to be published. So, can I check that will be published in—. You said published in full by the end of November, and available to…",
-   "url": "https://record.senedd.wales/Plenary/16421#C782897"
   }
  ]
 }
