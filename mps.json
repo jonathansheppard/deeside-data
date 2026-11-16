@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-09T07:06:06+00:00",
+ "updated": "2026-11-16T07:06:04+00:00",
  "source": "UK Parliament Members API and Commons Votes API",
  "seats": {
   "W07000082": {
@@ -23,11 +23,32 @@
    "website": "",
    "profile": "https://members.parliament.uk/member/1383/contact",
    "votes": {
-    "voted": 584,
-    "of": 631,
+    "voted": 589,
+    "of": 636,
     "since": "2024-07-17"
    },
    "recent": [
+    {
+     "title": "Opposition day: Employers",
+     "date": "2026-11-11",
+     "vote": "No",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2480"
+    },
+    {
+     "title": "Government Amendment to Opposition day debate on Welfare",
+     "date": "2026-11-11",
+     "vote": "Aye",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2479"
+    },
+    {
+     "title": "Opposition day: Welfare",
+     "date": "2026-11-11",
+     "vote": "No",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2478"
+    },
     {
      "title": "Railways Bill: Carry-over extension (Motion)",
      "date": "2026-11-04",
@@ -41,27 +62,6 @@
      "vote": "No",
      "teller": false,
      "url": "https://votes.parliament.uk/votes/commons/division/2475"
-    },
-    {
-     "title": "Sporting Events Bill [Lords] Report: Amendment 6",
-     "date": "2026-11-04",
-     "vote": "No",
-     "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2474"
-    },
-    {
-     "title": "Sporting Events Bill [Lords] Report: New Clause 1",
-     "date": "2026-11-04",
-     "vote": "No",
-     "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2473"
-    },
-    {
-     "title": "Budget Resolution No. 86: High value council tax surcharge",
-     "date": "2026-11-03",
-     "vote": "Aye",
-     "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2470"
     }
    ]
   },
@@ -80,11 +80,25 @@
    "website": "",
    "profile": "https://members.parliament.uk/member/5181/contact",
    "votes": {
-    "voted": 541,
-    "of": 631,
+    "voted": 545,
+    "of": 636,
     "since": "2024-07-17"
    },
    "recent": [
+    {
+     "title": "Opposition day: Employers",
+     "date": "2026-11-11",
+     "vote": "No",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2480"
+    },
+    {
+     "title": "Opposition day: Welfare",
+     "date": "2026-11-11",
+     "vote": "No",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2478"
+    },
     {
      "title": "Railways Bill: Carry-over extension (Motion)",
      "date": "2026-11-04",
@@ -105,20 +119,6 @@
      "vote": "No",
      "teller": false,
      "url": "https://votes.parliament.uk/votes/commons/division/2474"
-    },
-    {
-     "title": "Sporting Events Bill [Lords] Report: New Clause 1",
-     "date": "2026-11-04",
-     "vote": "No",
-     "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2473"
-    },
-    {
-     "title": "Budget Resolution No. 86: High value council tax surcharge",
-     "date": "2026-11-03",
-     "vote": "Aye",
-     "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2470"
     }
    ]
   }
