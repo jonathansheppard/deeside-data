@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17T13:15:00+00:00",
+ "updated": "2026-11-17T19:15:01+00:00",
  "numbers": [
   {
    "key": "council_tax",
@@ -31,8 +31,8 @@
   {
    "key": "fuel",
    "label": "Cheapest unleaded in Flintshire",
-   "value": "158.9p",
-   "context": "At Mfg Morrisons Saltney. UK average 164.0p",
+   "value": "157.9p",
+   "context": "At Esso - Saltney Service Station. UK average 163.7p",
    "date": "17 November 2026",
    "source": "GOV.UK Fuel Finder scheme",
    "link": "https://www.deeside.com/fuel-price-map/"
