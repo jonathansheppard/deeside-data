@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-18T13:15:01+00:00",
+ "updated": "2026-11-18T19:15:01+00:00",
  "numbers": [
   {
    "key": "council_tax",
@@ -31,18 +31,18 @@
   {
    "key": "fuel",
    "label": "Cheapest unleaded in Flintshire",
-   "value": "156.9p",
-   "context": "At Rhydymwyn Service Station. UK average 163.3p",
+   "value": "155.7p",
+   "context": "At Asda Queensferry. UK average 162.9p",
    "date": "18 November 2026",
    "source": "GOV.UK Fuel Finder scheme",
    "link": "https://www.deeside.com/fuel-price-map/"
   },
   {
    "key": "crime",
-   "label": "Crimes reported, August",
-   "value": "1,144",
-   "context": "Crimes and anti-social behaviour reported in Flintshire in August 2026, 42 fewer than a year earlier",
-   "date": "20 October 2026",
+   "label": "Crimes reported, September",
+   "value": "1,071",
+   "context": "Crimes and anti-social behaviour reported in Flintshire in September 2026, 139 more than a year earlier",
+   "date": "18 November 2026",
    "source": "data.police.uk",
    "link": "https://www.deeside.com/police-and-crime/"
   },
