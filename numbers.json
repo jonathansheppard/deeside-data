@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T13:15:00+00:00",
+ "updated": "2026-11-19T19:15:01+00:00",
  "numbers": [
   {
    "key": "council_tax",
@@ -32,7 +32,7 @@
    "key": "fuel",
    "label": "Cheapest unleaded in Flintshire",
    "value": "155.7p",
-   "context": "At Asda Queensferry. UK average 162.6p",
+   "context": "At Asda Queensferry. UK average 162.3p",
    "date": "19 November 2026",
    "source": "GOV.UK Fuel Finder scheme",
    "link": "https://www.deeside.com/fuel-price-map/"
