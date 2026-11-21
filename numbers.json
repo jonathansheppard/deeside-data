@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T13:15:00+00:00",
+ "updated": "2026-11-21T19:15:00+00:00",
  "numbers": [
   {
    "key": "council_tax",
@@ -32,7 +32,7 @@
    "key": "fuel",
    "label": "Cheapest unleaded in Flintshire",
    "value": "154.7p",
-   "context": "At Ascona Holywell Service Station. UK average 161.1p",
+   "context": "At Ascona Holywell Service Station. UK average 161.0p",
    "date": "21 November 2026",
    "source": "GOV.UK Fuel Finder scheme",
    "link": "https://www.deeside.com/fuel-price-map/"
