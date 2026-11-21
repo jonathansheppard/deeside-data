@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-21T07:15:00+00:00",
+ "updated": "2026-11-21T13:15:00+00:00",
  "numbers": [
   {
    "key": "council_tax",
@@ -32,7 +32,7 @@
    "key": "fuel",
    "label": "Cheapest unleaded in Flintshire",
    "value": "154.7p",
-   "context": "At Ascona Holywell Service Station. UK average 161.3p",
+   "context": "At Ascona Holywell Service Station. UK average 161.1p",
    "date": "21 November 2026",
    "source": "GOV.UK Fuel Finder scheme",
    "link": "https://www.deeside.com/fuel-price-map/"
@@ -49,9 +49,9 @@
   {
    "key": "trains",
    "label": "Borderlands trains on time",
-   "value": "56%",
+   "value": "61%",
    "context": "Wrexham to Bidston trains within 3 minutes of time over the last 7 days; 12 of 270 cancelled",
-   "date": "19 November 2026",
+   "date": "20 November 2026",
    "source": "National Rail performance data",
    "link": "https://www.deeside.com/wrexham-bidston-line/"
   },
