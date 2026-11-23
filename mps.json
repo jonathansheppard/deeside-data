@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-16T07:06:04+00:00",
+ "updated": "2026-11-23T07:06:08+00:00",
  "source": "UK Parliament Members API and Commons Votes API",
  "seats": {
   "W07000082": {
@@ -23,45 +23,45 @@
    "website": "",
    "profile": "https://members.parliament.uk/member/1383/contact",
    "votes": {
-    "voted": 589,
-    "of": 636,
+    "voted": 599,
+    "of": 646,
     "since": "2024-07-17"
    },
    "recent": [
     {
-     "title": "Opposition day: Employers",
-     "date": "2026-11-11",
-     "vote": "No",
-     "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2480"
-    },
-    {
-     "title": "Government Amendment to Opposition day debate on Welfare",
-     "date": "2026-11-11",
+     "title": "Government Amendment to Opposition day debate on Rosebank oil field",
+     "date": "2026-11-18",
      "vote": "Aye",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2479"
+     "url": "https://votes.parliament.uk/votes/commons/division/2490"
     },
     {
-     "title": "Opposition day: Welfare",
-     "date": "2026-11-11",
+     "title": "Opposition Day: Rosebank oilfield: Opposition motion",
+     "date": "2026-11-18",
      "vote": "No",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2478"
+     "url": "https://votes.parliament.uk/votes/commons/division/2489"
     },
     {
-     "title": "Railways Bill: Carry-over extension (Motion)",
-     "date": "2026-11-04",
+     "title": "Opposition day: UK-EU relations",
+     "date": "2026-11-18",
+     "vote": "No",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2488"
+    },
+    {
+     "title": "Draft Employment Rights Act 2025 (Unfair Dismissal) (Removal of Limit on  Compensation) (Consequential Amendments) Regulations 2026",
+     "date": "2026-11-18",
      "vote": "Aye",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2476"
+     "url": "https://votes.parliament.uk/votes/commons/division/2487"
     },
     {
-     "title": "Sporting Events Bill [Lords] Report: Amendment 8",
-     "date": "2026-11-04",
-     "vote": "No",
+     "title": "Immigration and Asylum Bill: Third Reading",
+     "date": "2026-11-17",
+     "vote": "Aye",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2475"
+     "url": "https://votes.parliament.uk/votes/commons/division/2486"
     }
    ]
   },
@@ -80,45 +80,45 @@
    "website": "",
    "profile": "https://members.parliament.uk/member/5181/contact",
    "votes": {
-    "voted": 545,
-    "of": 636,
+    "voted": 555,
+    "of": 646,
     "since": "2024-07-17"
    },
    "recent": [
     {
-     "title": "Opposition day: Employers",
-     "date": "2026-11-11",
-     "vote": "No",
-     "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2480"
-    },
-    {
-     "title": "Opposition day: Welfare",
-     "date": "2026-11-11",
-     "vote": "No",
-     "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2478"
-    },
-    {
-     "title": "Railways Bill: Carry-over extension (Motion)",
-     "date": "2026-11-04",
+     "title": "Government Amendment to Opposition day debate on Rosebank oil field",
+     "date": "2026-11-18",
      "vote": "Aye",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2476"
+     "url": "https://votes.parliament.uk/votes/commons/division/2490"
     },
     {
-     "title": "Sporting Events Bill [Lords] Report: Amendment 8",
-     "date": "2026-11-04",
+     "title": "Opposition Day: Rosebank oilfield: Opposition motion",
+     "date": "2026-11-18",
      "vote": "No",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2475"
+     "url": "https://votes.parliament.uk/votes/commons/division/2489"
     },
     {
-     "title": "Sporting Events Bill [Lords] Report: Amendment 6",
-     "date": "2026-11-04",
+     "title": "Opposition day: UK-EU relations",
+     "date": "2026-11-18",
      "vote": "No",
      "teller": false,
-     "url": "https://votes.parliament.uk/votes/commons/division/2474"
+     "url": "https://votes.parliament.uk/votes/commons/division/2488"
+    },
+    {
+     "title": "Draft Employment Rights Act 2025 (Unfair Dismissal) (Removal of Limit on  Compensation) (Consequential Amendments) Regulations 2026",
+     "date": "2026-11-18",
+     "vote": "Aye",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2487"
+    },
+    {
+     "title": "Immigration and Asylum Bill: Third Reading",
+     "date": "2026-11-17",
+     "vote": "Aye",
+     "teller": false,
+     "url": "https://votes.parliament.uk/votes/commons/division/2486"
     }
    ]
   }
