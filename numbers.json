@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T13:15:01+00:00",
+ "updated": "2026-11-27T19:15:01+00:00",
  "numbers": [
   {
    "key": "council_tax",
@@ -31,8 +31,8 @@
   {
    "key": "fuel",
    "label": "Cheapest unleaded in Flintshire",
-   "value": "150.8p",
-   "context": "At Rhydymwyn Service Station. UK average 157.2p",
+   "value": "149.7p",
+   "context": "At Asda Queensferry. UK average 156.8p",
    "date": "27 November 2026",
    "source": "GOV.UK Fuel Finder scheme",
    "link": "https://www.deeside.com/fuel-price-map/"
