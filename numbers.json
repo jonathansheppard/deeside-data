@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T19:15:01+00:00",
+ "updated": "2026-11-28T07:15:01+00:00",
  "numbers": [
   {
    "key": "council_tax",
@@ -14,8 +14,8 @@
    "key": "planning",
    "label": "Planning applications approved",
    "value": "92%",
-   "context": "166 approved and 15 refused in the last 90 days, from 335 applications",
-   "date": "27 November 2026",
+   "context": "168 approved and 15 refused in the last 90 days, from 335 applications",
+   "date": "28 November 2026",
    "source": "Flintshire County Council planning register",
    "link": "https://planning.deeside.com/"
   },
@@ -23,8 +23,8 @@
    "key": "hygiene",
    "label": "Food outlets rated 5",
    "value": "88%",
-   "context": "1,079 of 1,232 rated places in Flintshire; 18 are rated 2 or below",
-   "date": "27 November 2026",
+   "context": "1,079 of 1,233 rated places in Flintshire; 19 are rated 2 or below",
+   "date": "28 November 2026",
    "source": "Food Standards Agency",
    "link": "https://hygiene.deeside.com/"
   },
@@ -32,8 +32,8 @@
    "key": "fuel",
    "label": "Cheapest unleaded in Flintshire",
    "value": "149.7p",
-   "context": "At Asda Queensferry. UK average 156.8p",
-   "date": "27 November 2026",
+   "context": "At Asda Queensferry. UK average 156.6p",
+   "date": "28 November 2026",
    "source": "GOV.UK Fuel Finder scheme",
    "link": "https://www.deeside.com/fuel-price-map/"
   },
